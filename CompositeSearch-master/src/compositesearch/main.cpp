@@ -225,7 +225,9 @@ int main(int argc, char * argv[])
 	replace(folderTime.begin(), folderTime.end(), ' ', '_');
 	replace(folderTime.begin(), folderTime.end(), ':', '_');
 	folderTime.pop_back();
-	string outputDir = folder + "_" + folderTime;
+	string outputDir = folder; //+ "_" + folderTime;
+	// Modification from lisa, the original ligne is the following : 
+	//string outputDir = folder + "_" + folderTime;
 	system(("mkdir " + outputDir).c_str());
         // Ouput file basename
         fileOut = outputDir + "/" + basename;
