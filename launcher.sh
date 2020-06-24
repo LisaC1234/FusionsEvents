@@ -4,8 +4,8 @@ read -p 'Enter the name of the fasta file you want to analyse (for exemple unipr
 read -p 'How much core do you want to allow to this work ? ' core
 
 export DATA="$PWD/Data/$fasta.fasta"
-export ALIGN="$PWD/all_vs_all$fasta.txt"
-export FILE="all_vs_all$fasta""_txt_cleanNetwork_composites"
+export ALIGN="$PWD/$fasta"
+export FILE="$fasta""_cleanNetwork_composites"
 makeblastdb -in $DATA -dbtype prot -out my_prot_blast_db &
 pid1=$!
 wait $pid1
@@ -15,15 +15,12 @@ blastp -db my_prot_blast_db -query $DATA -out $ALIGN -seg yes -soft_masking true
 pid2=$!
 wait $pid2
 
-
-
-#appliquer les deux algos de rechercher puis faire le ménage
 ./CompositeSearch-master/bin/cleanblastp -i $ALIGN -n 1 &
 pid3=$!
 wait $pid3
 
 
-
+#Ask the user for the parameters he wants
 
 export E="1e-10"
 export P="50"
@@ -39,6 +36,8 @@ mv $ALIGN "$PWD/$FILE"
 mv "$ALIGN.cleanNetwork.genes" "$PWD/$FILE"
 mv "$ALIGN.cleanNetwork.dico" "$PWD/$FILE"
 
-python3 test.py
+#mv $FILE "/Result"  ############Ne fonctionne pas : "permission denied"
+
+#python3 test.py
 
 
