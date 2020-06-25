@@ -36,7 +36,8 @@ mv $ALIGN "$PWD/$FILE"
 mv "$ALIGN.cleanNetwork.genes" "$PWD/$FILE"
 mv "$ALIGN.cleanNetwork.dico" "$PWD/$FILE"
 
-#mv $FILE "/Result"  ############Ne fonctionne pas : "permission denied"
+rm -r Result/$FILE
+mv $FILE Result/  
 
 #python3 test.py
 
