@@ -36,7 +36,11 @@ mv $ALIGN "$PWD/$FILE"
 mv "$ALIGN.cleanNetwork.genes" "$PWD/$FILE"
 mv "$ALIGN.cleanNetwork.dico" "$PWD/$FILE"
 
-rm -r Result/$FILE
+if [ -d Result/$FILE ];then
+rm -r Result/$FILE;
+fi
+
+
 mv $FILE Result/  
 
 #python3 test.py

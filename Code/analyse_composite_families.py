@@ -53,17 +53,19 @@ def analyse(dico): #find every composite that are composed with same-family comp
 				res.append(similar)
 	probable = probable_families(res, pairs)
 	return probable
-			
-			
+	
 				
 def similarity(fam_c1, fam_c2): #analy two list of components of two composites and look for similarities. 
 	num_matches  = 0
 	list_matches = []
-	fam_c1 = [[x for (x,y) in z] for z in fam_c1]
-	fam_c2 = [[x for (x,y) in z] for z in fam_c2]
+	fam_c1 = [set([x for (x,y) in z]) for z in fam_c1]
+	fam_c2 = [set([x for (x,y) in z]) for z in fam_c2]
+	#print(fam_c1,fam_c2)
 	for d1 in range(len(fam_c1)): #iterise on the domains
 		for d2 in range(len(fam_c2)):
 			for f1 in fam_c1[d1]:
+				if f1 == 'C5288':
+					print("on a trouvé F129")
 				if f1 in fam_c2[d2]: # we found a match! 
 					list_matches.append((f1,(d1,d2)))
 					num_matches += 1	
@@ -99,14 +101,14 @@ def probable_families(verified_matches, nb_pairs):
 
 
 
-
-
-
-
-
-
-
-
+def extract_dictionary(fasta):
+	path = "Result/" +fasta+ "_cleanNetwork_composites/" + fasta + ".cleanNetwork.dico"
+	res = {}
+	with open(path, "r") as dico_file:
+		for line in dico_file:
+			assoc = line.split()
+			res[assoc[0]] = assoc[1]
+	return res
 
 
 
@@ -119,7 +121,8 @@ def main():
 	args = parse_arguments()
 	fasta = args.fasta
 	dico = extract_composites(fasta)
-	print(analyse(dico))
+	res = analyse(dico)
+	print(res)
 	
 if __name__ == "__main__":
 	main()
