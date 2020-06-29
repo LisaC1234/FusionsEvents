@@ -1,0 +1,1 @@
+There is a modification of the file main, that is easily reversible. Search for the word 'lisa' in the text of main.cpp, and there is the original line commented. I it necessary to recompile after that (make)
