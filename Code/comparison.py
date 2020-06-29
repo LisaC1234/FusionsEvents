@@ -71,7 +71,8 @@ def main():
 	dico_names = extract_dictionary(fasta)
 	#print("\n dico_names\n", dico_names)
 	list_uniprot_CompositeSearch = list_of_uniprot_composites(dico_composites, dico_names)
-	print(list_uniprot_CompositeSearch)
+	print('##################################################')
+	print('CompositeSearch list of composite (', len(list_uniprot_CompositeSearch), ') : ','\n', list_uniprot_CompositeSearch,'\n')
 	diffuse_results = read_Diffuse_results(fasta)
 	#print(diffuse_results)
 	list_uniprot_Diffuse = []
@@ -79,12 +80,16 @@ def main():
 		compo = diffuse_results[event][0][1]
 		if compo not in list_uniprot_Diffuse:
 			list_uniprot_Diffuse.append(compo)
-	
+	print('##################################################')
+	print('Diffuse list of composite (',len(list_uniprot_Diffuse),') : ','\n', list_uniprot_Diffuse,'\n')
+	compteur = 0
 	for Comp in list_uniprot_Diffuse:
 		if Comp not in list_uniprot_CompositeSearch:
 			print('Caution, the composite : ', Comp , ' is not detected by CompositeSearch')
 		else :
-			print("OK")
+			print('The composite : ', Comp, 'detected by Diffuse is also detected by CompositeSearch')
+			compteur +=1
+	print(compteur, ' composites are found both by CompositeSearch and Diffuse')
 	
 if __name__ == "__main__":
 	main()
