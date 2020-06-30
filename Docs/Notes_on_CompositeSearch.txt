@@ -1,0 +1,45 @@
+CompositeSearch: A Generalized Network Approach forComposite Gene Families Detection
+
+
+CompositeSearch : this algorihtm is used to deted gene families, and particulary composite gene families. "Composite" means that the gene family is made of component (segments of genes), that evolved separately in other genes families, and that have been assembled later. 
+
+Sequence similarity networks (SSN) : non oriented graph with each sequences as a node, and each edges as a similarity between the two nodes (sequences) linked (given a similarity mesure : minimum percentage or Blast E-value, or minimum mutual coverage). 
+
+Some mesure are not symetrical, so first the algorithm symetrised the network, by keeping the best match of each comparison. This procedures does not impact the topography. 
+
+Patterns appears in the network, gene families formed tight clusters, with very good similarity mesures, and superfamilies or composites families introduces more complexes informatives patterns.
+
+(to find state of the art, see p2)
+
+
+Installation de CompositeSearch : The fuction round and floor are not include in the basic function depending on the ISOs used. If a compilation problems occurs, there is a good solution in the issue in the github page. here : "in ./src/compositesearch/compositeFamilies.cpp, add "#include <cmath>" to the beginning of the file and change "round" to "std::round"; in ./src/compositesearch/composites.cpp, add "#include <cmath>" to the beginning of the file and change "round" to "std::round"."
+
+After this, the installation seems to work. 
+
+Data : from 'materials and methods', it is said that CompositeSearch need the cleaned result of an all-against-all BLAST sequence comparison. Datas need to go through BLAST, and then through 'cleanblastp', that comes with CompositeSearch. 
+
+cleanblastp : removes all the self-hits, and keep only the best hit (lowest E-value). this give a symetric easy to split input file for CompositeSearch. 
+
+Blast all vs all :
+first : 
+makeblastdb -in XXX.fasta -dbtype prot -out my_prot_blast_db
+then : 
+blastp -db my_prot_blast_db -query Downloads/uniprotProteome.fasta -seg yes -soft_masking true -max_target_seqs 5000 -outfmt "6 qseqid sseqid evalue pident bitscore qstart qend qlen sstart send slen"
+
+Downloads/uniprotProteome.fasta
+
+
+There is a problem with the creation of the clean datas with "cleanblastp". The file generated are empty. 
+
+Pour demain : tester le cleaning blast avec le fichier avec les ":" (all-vs-all_copy.txt) pour voir si il préfère. 
+
+
+
+23/06 : First working execution of the algo : the option -n 1 is needed for the cleaning algorithm. First observations : Genes families seems not very much populated. 2nd observations : some protéines of the input are not present in the output (why ?). There are some composite families that are supposedly made of a lot of other families (I believe it is not very probable...)
+
+TODO now : find a good set of data, and a gold standard to compare the results with, and try to figure out in wich ways it could help with our problems (see if two proteins share a part of their genetic origins, ie if they come from a fusion event)
+
+Data the algorithm give us : Infos on genes families, info on composite genes and composite genes families. I believe that the main info for us will be in the composite gene results. 
+
+Site ncbi pour les correspondance gene/position : 
+https://www.ncbi.nlm.nih.gov/genome/browse/#!/proteins/51/582967%7CHomo%20sapiens/
