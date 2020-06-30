@@ -1,0 +1,6 @@
+uniprot-proteome UP000005640+reviewed yes
+human_reviewed
+
+uniprot-proteomecomponent chromosome+1 -filtered-reviewed yes+AND+organ--
+chromosome_1
+(valid for all the human chromosomes)

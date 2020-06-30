@@ -32,7 +32,7 @@ wait $pid3
 #Ask the user for the parameters he wants
 export E="1e-10" 
 export P="50"
-export C="10"
+export C="80"
 
 
 ################################################ Applying CompositeSearch on the network 

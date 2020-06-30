@@ -1,0 +1,54 @@
+CompositeSearch results, run with : 
+E-value : 1e-7
+Pident  : 50
+MinCov  : 90
+chromosome_10
+2
+chromosome_11
+1
+chromosome_12
+0
+chromosome_13
+0
+chromosome_14
+0
+chromosome_15
+18
+chromosome_16
+22
+chromosome_17
+3
+chromosome_18
+0
+chromosome_19
+156
+chromosome_1
+4
+chromosome_20
+0
+chromosome_21
+0
+chromosome_22
+3
+chromosome_2
+8
+chromosome_3
+5
+chromosome_4
+0
+chromosome_5
+1
+chromosome_6
+11
+chromosome_7
+17
+chromosome_8
+3
+chromosome_9
+0
+chromosome_x
+3
+chromosome_y
+0
+mitochondrion
+0
