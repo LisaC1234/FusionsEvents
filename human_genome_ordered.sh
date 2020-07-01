@@ -67,9 +67,8 @@ if [ $run = 'al' ];then
 fi
 
 LISTE_RES=`ls Result/Human_by_chromosome`
-LISTE_TEST=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","X","Y"]
+LISTE_TEST=(1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 x y)
 RES_FILE="Docs/composite_count_human_E$E""_P$P""_C$C.md"
-
 if [ -f $RES_FILE ];then
 	rm $RES_FILE
 fi
@@ -83,8 +82,9 @@ echo ""  >> $RES_FILE
 echo "| Chromosome | Genes | Composites | Components (uniques) | Families of composites |"  >> $RES_FILE
 echo "|------------|-------|------------|----------------------|------------------------|"  >> $RES_FILE
 
-for name in $LISTE_RES 
+for numb in "${LISTE_TEST[@]}"
 do
+	name="chromosome_$numb""_cleanNetwork_composites"
 	DATA="$PWD/Data/Human_by_chromosome/${name::-24}.fasta"
 	COMPOSITE="Result/Human_by_chromosome/$name/${name::-11}.composites"
 	COMPOSITE_FAM="Result/Human_by_chromosome/$name/${name::-11}.compositefamilies"
