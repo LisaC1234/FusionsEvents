@@ -67,9 +67,8 @@ if [ $run = 'al' ];then
 fi
 
 LISTE_RES=`ls Result/Human_by_chromosome`
-LISTE_TEST=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","X","Y"]
-RES_FILE="Docs/composite_count_human_E$E""_P$P""_C$C.md"
-
+LISTE_TEST=(1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 x y)
+RES_FILE="Result/Human_by_chromosome/composite_count_human_E$E""_P$P""_C$C.md"
 if [ -f $RES_FILE ];then
 	rm $RES_FILE
 fi
@@ -81,18 +80,20 @@ echo "Pident  : $P"  >> $RES_FILE
 echo "MinCov  : $C"  >> $RES_FILE
 echo ""  >> $RES_FILE
 echo "| Chromosome | Genes | Composites | Components (uniques) | Families of composites |"  >> $RES_FILE
-echo "|------------|-------|------------|----------------------|------------------------|"  >> $RES_FILE
+echo "|------------|:-----:|:----------:|:--------------------:|:----------------------:|"  >> $RES_FILE
 
-for name in $LISTE_RES 
+for numb in "${LISTE_TEST[@]}"
 do
+	name="chromosome_$numb""_cleanNetwork_composites"
 	DATA="$PWD/Data/Human_by_chromosome/${name::-24}.fasta"
 	COMPOSITE="Result/Human_by_chromosome/$name/${name::-11}.composites"
 	COMPOSITE_FAM="Result/Human_by_chromosome/$name/${name::-11}.compositefamilies"
 	STR1=$(grep -c ">" $DATA) # number of genes
 	STR2=$(grep -c C $COMPOSITE) # number of composites
 	STR3=$(grep -c F $COMPOSITE) # number of components (uniques)
-	STR4=$(grep -c ">CF" $COMPOSITE_FAM) # number of composites families
-	echo "| ${name::-24} | $STR1 | $STR2 | $STR3 | $STR4 |" >> $RES_FILE
+	STR4=$(cut -f1 $COMPOSITE | grep F | sort -u | grep -c F) # number of components (uniques)
+	STR5=$(grep -c ">CF" $COMPOSITE_FAM) # number of composites families
+	echo "| ${name::-24} | $STR1 | $STR2 | $STR3 ($STR4) | $STR5 |" >> $RES_FILE
 done 
 #python3 test.py
 
