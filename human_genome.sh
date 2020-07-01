@@ -3,7 +3,7 @@
 LISTE=`ls Data/Human_by_chromosome`
 read -p 'Do you want to run the algorithm, or just the analysis ? (al or an)' run
 
-E="1e-7" 
+E="1e-10" 
 P="50"
 C="80"
 

@@ -242,11 +242,14 @@ void initializeGeneList(string blastpGenesFile, map<unsigned long long int, bool
 	else
 	{
 		string gene;
+		int compt = 0; //lisa
 		while(getline(geneList,gene))
 		{
 			isVisited[atoll(gene.c_str())]=false;
 			geneIsVisited[atoll(gene.c_str())]=false;
+			compt ++ ;//lisa
 		}
+	cout << "nb of genes that came in in initializeGeneList : " << compt << endl; //lisa
 	}
 }
 //end
