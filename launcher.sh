@@ -8,10 +8,9 @@ export ALIGN="$PWD/$fasta"
 export FILE="$fasta""_cleanNetwork_composites"
 
 
+if [ -f Data/Blast_Alignments/$fasta ];then
 
-if [ -f Result/$FILE/$fasta ];then
-
-	mv "$PWD/Result/$FILE/$fasta" "$PWD"
+	mv "$PWD/Data/Blast_Alignments/$fasta" "$PWD"
 
 else
 #################################################Make blast Database
@@ -29,22 +28,34 @@ fi
 pid3=$!
 wait $pid3
 
+
+
+
 #Ask the user for the parameters he wants
 export E="1e-10" 
 export P="50"
 export C="80"
 
+read -p 'Do you want to use a list of genes? enter the path to the file from this repertory here : ' path
 
+if [ "$path" = "" ]
+then
 ################################################ Applying CompositeSearch on the network 
-./CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" &
-pid4=$!
-wait $pid4
+	./CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" &
+	pid4=$!
+	wait $pid4
 
+else
+	./CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" -g $path &
+	pid4=$!
+	wait $pid4
+fi
 ############################################## Cleaning the repertories
 
 
+
 mv "$ALIGN.cleanNetwork" "$PWD/$FILE"
-mv $ALIGN "$PWD/$FILE"
+mv $ALIGN "$PWD/Data/Blast_Alignments"
 mv "$ALIGN.cleanNetwork.genes" "$PWD/$FILE"
 mv "$ALIGN.cleanNetwork.dico" "$PWD/$FILE"
 
