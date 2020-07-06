@@ -136,7 +136,7 @@ def main():
 	list_nb_genes = [1975 , 1249 , 1032 , 730 , 842 , 970 , 927 , 643 , 741 , 708 , 1258 , 986 , 310 , 698 , 559 , 794 , 1121 , 264 , 1372 , 525 , 221 , 464 , 790 , 37]
 	
 	
-	result_file = "Docs/test_tableau_all_vs_all.txt"
+	result_file = "Docs/tableau_all_vs_all.md"
 	with open(result_file, "w") as res:
 		res.write("| Chromosome | Genes | Composites | Components (uniques) | Families of composites |\n")
 		res.write("|------------|:-----:|:----------:|:--------------------:|:----------------------:|\n")

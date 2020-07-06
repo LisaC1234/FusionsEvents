@@ -210,6 +210,8 @@ void computeFamilies( map<unsigned long long int, geneInfo>& genes, map<pair<uns
 			ccNodes.clear();
 			sort(nodes.begin(),nodes.end());
 			unsigned short int goodCovPercent = ceil(((float)goodEdges/(float)realEdges)*100.0);
+			cout << "goodCovPercent " << goodCovPercent << " pour la fam " << nCC << endl;//lisa
+			cout << "goodEdges " << (float)goodEdges << " realEdges " << (float)realEdges << " pour la famille " << nCC << endl;//lisa
 			if( goodCovPercent < 100 )
 			{
 				ccEdges.clear();
@@ -236,6 +238,7 @@ void computeFamilies( map<unsigned long long int, geneInfo>& genes, map<pair<uns
 			{
 				//
 				float connectivity = (2.0*(float)NbEdges)/((float)nodes.size()*((float)nodes.size()-1.0));
+				cout << "connectivity " << connectivity << " avec edge " << (float)NbEdges << " et node " << (float)nodes.size() << endl;//lisa
 				outputCCinfo << "F" << nCC << "\t" << NbNodes << "\t" << NbEdges << "\t" << setprecision (2) << fixed << connectivity << endl;
 				//
 				geneFamilies[nCC] = familyInfo(connectivity,false);

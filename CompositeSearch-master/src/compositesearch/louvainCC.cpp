@@ -124,6 +124,7 @@ unsigned int louvainCC( vector<unsigned long long int>& nodes, map<unsigned long
 		float connectivity = (2.0*(float)NbEdges)/((float)NbNodes*((float)NbNodes-1.0));
 		geneFamilies[nCC].setConnectivity(connectivity);
 		geneFamilies[nCC].sortGenes();
+		cout << "dans louvain" << nCC << endl;//lisa
 		outputCCinfo << "F" << nCC << "\t" << NbNodes << "\t" << NbEdges << "\t" << setprecision (2) << fixed << connectivity << endl;
 		//cout << "louvain " << nCC << endl;
 	}

@@ -344,6 +344,9 @@ bool checkCoverage(unsigned long long int node1, unsigned long long int node2, u
         unsigned short int scov = floor((((float)edge.getSend()-(float)edge.getSstart()+1.0)*100.0)/(float)genes[node2].getLength());
         // Return true if both cov are higher or equal to the minimum coverage value 
         // fixed by the user or the default one (80%)
+        //cout << "\nnode1 " << node1 << " node2 " << node2 << endl;//lisa
+        //cout << "edgeValues " << typeid(edgeValues).name() << endl;//lisa
+        //cout << "qcov " << qcov << " scov " << scov << " minCov " << minCov << endl;//lisa
         if(qcov >= minCov && scov >= minCov)
         {
                 return true;
