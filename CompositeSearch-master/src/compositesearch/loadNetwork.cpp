@@ -189,6 +189,7 @@ void loadNetwork(string fileIn, string geneList, float pidentLimit, double evalu
 void runLoadNetwork( string fileIn, string geneList, float pidentLimit, double evalueLimit, map<string, unsigned short int>& positionsList, map<pair<unsigned long long int, unsigned long long int>, edgeValues>& edges, map<unsigned long long int, geneInfo >& genes, vector<pair<unsigned long long int,unsigned long long int>>& nodesDegree, map<unsigned long long int, bool>& geneIsVisited, unsigned int nCpu, string timeInfo)
 {
 	// split network
+	cout << "##################################\n" << geneList <<  "\n##################################\n" << endl;//lisa
 	if( nCpu > 1 )
 	{
 		// Split file into N parts where N = nCpu
@@ -219,6 +220,7 @@ void runLoadNetwork( string fileIn, string geneList, float pidentLimit, double e
 	system(("rm *.CompositeSearchLoadNetwork_" + timeInfo).c_str());
 	// Sort nodes neighbors for dichotomic search	
 	map<unsigned long long int, geneInfo>::iterator n = genes.begin();
+	int compt = 0; //lisa
 	while(n != genes.end())
 	{
 		// Sort node's neighbors
@@ -227,7 +229,9 @@ void runLoadNetwork( string fileIn, string geneList, float pidentLimit, double e
 		nodesDegree.push_back(make_pair(genes[n->first].getNeighborsSize(),n->first));
 		// increase
 		n++;
+		compt ++;
 	}
+	cout << "######  nb de genes?  ##########\n" << compt <<  "\n##################################\n" << endl;//lisa
 	sort(nodesDegree.begin(),nodesDegree.end());
 }
 
