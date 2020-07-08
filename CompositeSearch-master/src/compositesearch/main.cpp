@@ -314,6 +314,7 @@ int main(int argc, char * argv[])
 		cout << "----- NETWORK LOADING -----" << endl << endl;
 		cout << "START - " << asctime(localtime(&start)) << endl;
 	}
+	cout << "lenght of geneList before the network loading : " << geneList.size() << endl;
 	runLoadNetwork(fileIn, geneList, pidentLimit, evalueLimit, refPositionsList, refEdges, refGenes, refND, refGIV, nCpu, folderTime);
 	end = time(NULL);
 	if( verbose == 1 )

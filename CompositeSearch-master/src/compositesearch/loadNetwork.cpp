@@ -67,6 +67,7 @@ void loadNetwork(string fileIn, string geneList, float pidentLimit, double evalu
 	// Gene list to check
 	vector<unsigned long long int> genesToCheck;
 	vector<unsigned long long int>& refgenesToCheck = genesToCheck;
+	
 	// local edges
 	map<pair<unsigned long long int, unsigned long long int>, edgeValues> localEdges;
 	// local length
@@ -81,10 +82,12 @@ void loadNetwork(string fileIn, string geneList, float pidentLimit, double evalu
 		// Store into a vector the specific genes to check
 		if( geneList != "" )
 		{
+			cout << "There is some genes to check " << geneList[0] << endl; //lisa
 			ifstream genes(geneList.c_str());
 			string gene;
 			while(getline(genes,gene))
 			{
+				cout << "One of the genes :  " << gene << " qui est transformé en " << gene.c_str() << " qui est transformé en " << atoll(gene.c_str()) << endl; //lisa
 				genesToCheck.push_back(atoll(gene.c_str()));
 			}
 			sort(genesToCheck.begin(),genesToCheck.end());
@@ -93,6 +96,11 @@ void loadNetwork(string fileIn, string geneList, float pidentLimit, double evalu
 		string hit;
 		// Network's edge number
 		// Start reading blastp out
+		//cout << "ICI " << endl; // lisa
+		//for(auto const & it : refgenesToCheck){ //lisa
+     		//	std::cout<<it; //lisa
+		//} //lisa
+		cout << "ICI " << endl; // lisa
 		while(getline(blastp,hit))
 		{
 			// Get hit line
@@ -111,14 +119,20 @@ void loadNetwork(string fileIn, string geneList, float pidentLimit, double evalu
 			// Do not keep self hits and hits out of the pident thresholds
 			if(atof(hitValues[pident_p].c_str()) < pidentLimit or atof(hitValues[evalue_p].c_str()) > evalueLimit)
 			{
-				keep = 0;
+				//cout << atof(hitValues[pident_p].c_str()) << " pour l'edge " << hitValues[qseqid_p] << " vers " << hitValues[sseqid_p] << endl; //lisa
+				keep = 0; //lisa : 0 -> 1
 			}
+			//cout << "e" << endl; //lisa
 			if(geneList != "")
 			{
+				//cout << "i" << endl; //lisa
+				//cout << "One Test :  " << hitValues[qseqid_p] << " qui est transformé en " << hitValues[qseqid_p].c_str() << " qui est transformé en " << atoll(hitValues[qseqid_p].c_str()) << endl; //lisa
 				// Check if qseqid and sseqid are in the specific genes list
-				if(not FoundIn(atoll(hitValues[qseqid_p].c_str()), refgenesToCheck) or not FoundIn(atoll(hitValues[sseqid_p].c_str()), refgenesToCheck))
+				//if(not FoundIn(atoll(hitValues[qseqid_p].c_str()), refgenesToCheck) or not FoundIn(atoll(hitValues[sseqid_p].c_str()), refgenesToCheck))
+				if(FoundIn(atoll(hitValues[qseqid_p].c_str()), refgenesToCheck) or FoundIn(atoll(hitValues[sseqid_p].c_str()), refgenesToCheck)) //lisa
 				{
-					keep = 0;
+					cout << "keep devrait passer à 1" << endl; //lisa
+					keep = 1; //lisa : 0 -> 1
 				}
 			}
 			//cout << hit << endl;
@@ -126,6 +140,7 @@ void loadNetwork(string fileIn, string geneList, float pidentLimit, double evalu
 			// keep hit
 			if(keep == 1)
 			{
+				//cout << "a " << endl; //lisa
 				qseqid = atoll(hitValues[qseqid_p].c_str());
 				sseqid = atoll(hitValues[sseqid_p].c_str());
 				qstart = atoi(hitValues[qstart_p].c_str());
@@ -189,7 +204,7 @@ void loadNetwork(string fileIn, string geneList, float pidentLimit, double evalu
 void runLoadNetwork( string fileIn, string geneList, float pidentLimit, double evalueLimit, map<string, unsigned short int>& positionsList, map<pair<unsigned long long int, unsigned long long int>, edgeValues>& edges, map<unsigned long long int, geneInfo >& genes, vector<pair<unsigned long long int,unsigned long long int>>& nodesDegree, map<unsigned long long int, bool>& geneIsVisited, unsigned int nCpu, string timeInfo)
 {
 	// split network
-	cout << "##################################\n" << geneList <<  "\n##################################\n" << endl;//lisa
+	//cout << "##################################\n" << geneList <<  "\n##################################\n" << endl;//lisa
 	if( nCpu > 1 )
 	{
 		// Split file into N parts where N = nCpu
