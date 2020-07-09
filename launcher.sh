@@ -38,36 +38,49 @@ export C="80"
 
 read -p 'Do you want to use a list of genes? enter the path to the file from this repertory here : ' path
 
-if [ "$path" = "" ]
+if [ "$path" == "" ]
 then
 ################################################ Applying CompositeSearch on the network 
-	./CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" &
-	pid4=$!
-	wait $pid4
+	./CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" && echo "ici" &&  export A_FONCTIONNE="true"
+
 
 else
-	./CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" -g $path &
-	pid4=$!
-	wait $pid4
+	./CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" -g $path && echo "la" && export A_FONCTIONNE="true"
 fi
 ############################################## Cleaning the repertories
 
+echo $A_FONCTIONNE
 
 
-mv "$ALIGN.cleanNetwork" "$PWD/$FILE"
-mv $ALIGN "$PWD/Data/Blast_Alignments"
-mv "$ALIGN.cleanNetwork.genes" "$PWD/$FILE"
-mv "$ALIGN.cleanNetwork.dico" "$PWD/$FILE"
+if [ "$A_FONCTIONNE" == "true" ];then
+	echo "on déplace"
+	mv "$ALIGN.cleanNetwork" "$PWD/$FILE"
+	mv "$ALIGN.cleanNetwork.genes" "$PWD/$FILE" 
+	mv "$ALIGN.cleanNetwork.dico" "$PWD/$FILE" 
+	
+	
+	if [ -d Result/$FILE ];then
+		rm -r Result/$FILE;
+	fi
 
-if [ -d Result/$FILE ];then
-	rm -r Result/$FILE;
+
+	mv $FILE Result/  
+else
+	rm "$ALIGN.cleanNetwork.dico"
+	rm "$ALIGN.cleanNetwork"
+	rm "$ALIGN.cleanNetwork.genes"
+	LISTE=`ls [0-9]*`
+	for name in $LISTE
+	do
+		rm $name
+	done
+	if [ -d $FILE ];then #pour supprimer le dossier qui a été crée
+		rm -r $FILE;
+	fi
+
 fi
 
-
-mv $FILE Result/  
-
-
-
+mv $ALIGN "$PWD/Data/Blast_Alignments" 
 #python3 test.py
 
 

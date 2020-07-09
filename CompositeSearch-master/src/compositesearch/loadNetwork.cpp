@@ -131,7 +131,7 @@ void loadNetwork(string fileIn, string geneList, float pidentLimit, double evalu
 				//if(not FoundIn(atoll(hitValues[qseqid_p].c_str()), refgenesToCheck) or not FoundIn(atoll(hitValues[sseqid_p].c_str()), refgenesToCheck))
 				if(FoundIn(atoll(hitValues[qseqid_p].c_str()), refgenesToCheck) or FoundIn(atoll(hitValues[sseqid_p].c_str()), refgenesToCheck)) //lisa
 				{
-					cout << "keep devrait passer à 1" << endl; //lisa
+					//cout << "keep devrait passer à 1" << endl; //lisa
 					keep = 1; //lisa : 0 -> 1
 				}
 			}

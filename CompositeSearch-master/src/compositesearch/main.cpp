@@ -40,6 +40,7 @@
 #include <ctime>
 #include <set>
 #include <vector>
+#include <cassert> //lisa
 
 using namespace std;
 
@@ -323,6 +324,7 @@ int main(int argc, char * argv[])
 	}
 	duration( start, end, verbose );
 	cout << endl;
+	assert(genes.size() != 0 && "Caution, the network is empty");
 	if( verbose == 1 )
 	{
 		cout << "---------- NETWORK INFO ----------" << endl << endl;
