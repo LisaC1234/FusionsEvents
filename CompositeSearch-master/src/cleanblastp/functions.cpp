@@ -94,9 +94,11 @@ long double edgeValues::getEvalue()
 }
 
 
+
 bool checkCoverage(unsigned int qstart, unsigned int qend, unsigned int qlen, unsigned int sstart,unsigned int send,unsigned int slen, unsigned short int minCov, unsigned short int mutual)
 {
         // Query coverage
+        //cout  << " minCov dans clean " << minCov << endl;//lisa
         unsigned short int qcov = floor((((float)qend-(float)qstart+1.0)*100.0)/(float)qlen);
         // Subject coverage
         unsigned short int scov = floor((((float)send-(float)sstart+1.0)*100.0)/(float)slen);

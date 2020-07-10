@@ -29,7 +29,7 @@ export E="1e-10"
 export P="50"
 export C="80"
 
-./CompositeSearch-master/bin/cleanblastp -i $ALIGN -n 1 -p $P &
+./CompositeSearch-master/bin/cleanblastp -i $ALIGN -n 1 &
 pid3=$!
 wait $pid3
 
