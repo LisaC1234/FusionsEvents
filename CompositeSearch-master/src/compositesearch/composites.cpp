@@ -45,7 +45,7 @@ void composites( map<unsigned int, list<unsigned long long int> >& refSubNodes, 
 	unsigned long long int totalNodes = refSubNodes[l].size();
 	unsigned long long int processedNodes = 0;
 	// Check if genes are composites
-	cout << "compositeFamMinSize  " << compositeFamMinSize  << "componentFamMinSize  " << componentFamMinSize << endl; //lisa
+	//cout << "compositeFamMinSize  " << compositeFamMinSize  << "componentFamMinSize  " << componentFamMinSize << endl; //lisa
 	while(!refSubNodes[l].empty())
 	{
 		// Composite candidate genes

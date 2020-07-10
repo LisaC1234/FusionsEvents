@@ -43,7 +43,7 @@ void loadNetwork(string fileIn, string geneList, float pidentLimit, double evalu
 {
 	// Get headers position value
 	// qseqid position
-	cout << "longueur de la liste des arretes " << positionsList.size() << endl; //lisa
+	//cout << "longueur de la liste des arretes " << positionsList.size() << endl; //lisa
 	unsigned short int qseqid_p = positionsList["qseqid"];
 	// sseqid position
 	unsigned short int sseqid_p = positionsList["sseqid"];
@@ -83,7 +83,7 @@ void loadNetwork(string fileIn, string geneList, float pidentLimit, double evalu
 		// Store into a vector the specific genes to check
 		if( geneList != "" )
 		{
-			cout << "There is some genes to check " << geneList[0] << endl; //lisa
+			// cout << "There is some genes to check " << geneList[0] << endl; //lisa
 			ifstream genes(geneList.c_str());
 			string gene;
 			while(getline(genes,gene))

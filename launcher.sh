@@ -44,19 +44,19 @@ read -p 'Do you want to use a list of genes? enter the path to the file from thi
 if [ "$path" == "" ]
 then
 ################################################ Applying CompositeSearch on the network 
-	./CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" && echo "ici" &&  export A_FONCTIONNE="true"
+	./CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" &&  export A_FONCTIONNE="true"
 
 
 else
-	./CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" -g $path && echo "la" && export A_FONCTIONNE="true"
+	./CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" -g $path && export A_FONCTIONNE="true"
 fi
 ############################################## Cleaning the repertories
 
-echo $A_FONCTIONNE
+#echo $A_FONCTIONNE
 
 
 if [ "$A_FONCTIONNE" == "true" ];then
-	echo "on déplace"
+	#echo "on déplace"
 	mv "$ALIGN.cleanNetwork" "$PWD/$FILE"
 	mv "$ALIGN.cleanNetwork.genes" "$PWD/$FILE" 
 	mv "$ALIGN.cleanNetwork.dico" "$PWD/$FILE" 
