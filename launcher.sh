@@ -24,7 +24,12 @@ else
 	rm my_prot_blast_db.phr my_prot_blast_db.pin my_prot_blast_db.psq 
 fi
 ################################################# Cleaning the network
-./CompositeSearch-master/bin/cleanblastp -i $ALIGN -n 1 &
+
+export E="1e-10" 
+export P="50"
+export C="80"
+
+./CompositeSearch-master/bin/cleanblastp -i $ALIGN -n 1 -p $P &
 pid3=$!
 wait $pid3
 
@@ -32,9 +37,7 @@ wait $pid3
 
 
 #Ask the user for the parameters he wants
-export E="1e-10" 
-export P="50"
-export C="80"
+
 
 read -p 'Do you want to use a list of genes? enter the path to the file from this repertory here : ' path
 

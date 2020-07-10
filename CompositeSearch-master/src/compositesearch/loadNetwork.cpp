@@ -43,6 +43,7 @@ void loadNetwork(string fileIn, string geneList, float pidentLimit, double evalu
 {
 	// Get headers position value
 	// qseqid position
+	cout << "longueur de la liste des arretes " << positionsList.size() << endl; //lisa
 	unsigned short int qseqid_p = positionsList["qseqid"];
 	// sseqid position
 	unsigned short int sseqid_p = positionsList["sseqid"];
@@ -87,7 +88,7 @@ void loadNetwork(string fileIn, string geneList, float pidentLimit, double evalu
 			string gene;
 			while(getline(genes,gene))
 			{
-				cout << "One of the genes :  " << gene << " qui est transformé en " << gene.c_str() << " qui est transformé en " << atoll(gene.c_str()) << endl; //lisa
+				//cout << "One of the genes :  " << gene << " qui est transformé en " << gene.c_str() << " qui est transformé en " << atoll(gene.c_str()) << endl; //lisa
 				genesToCheck.push_back(atoll(gene.c_str()));
 			}
 			sort(genesToCheck.begin(),genesToCheck.end());
@@ -100,10 +101,12 @@ void loadNetwork(string fileIn, string geneList, float pidentLimit, double evalu
 		//for(auto const & it : refgenesToCheck){ //lisa
      		//	std::cout<<it; //lisa
 		//} //lisa
-		cout << "ICI " << endl; // lisa
+		//cout << "ICI " << endl; // lisa
+		int cmp = 0; //lisa
 		while(getline(blastp,hit))
 		{
 			// Get hit line
+			cmp ++; //lisa
 			istringstream hitInfo(hit);
 			// Split line and store values into hitValues vector
 			vector<string> hitValues;
@@ -126,13 +129,17 @@ void loadNetwork(string fileIn, string geneList, float pidentLimit, double evalu
 			if(geneList != "")
 			{
 				//cout << "i" << endl; //lisa
-				//cout << "One Test :  " << hitValues[qseqid_p] << " qui est transformé en " << hitValues[qseqid_p].c_str() << " qui est transformé en " << atoll(hitValues[qseqid_p].c_str()) << endl; //lisa
+				//cout << "One Test :  " << hitValues[qseqid_p] << " devien " << hitValues[qseqid_p].c_str() << " devien " << atoll(hitValues[qseqid_p].c_str()) << endl; //lisa
 				// Check if qseqid and sseqid are in the specific genes list
 				//if(not FoundIn(atoll(hitValues[qseqid_p].c_str()), refgenesToCheck) or not FoundIn(atoll(hitValues[sseqid_p].c_str()), refgenesToCheck))
 				if(FoundIn(atoll(hitValues[qseqid_p].c_str()), refgenesToCheck) or FoundIn(atoll(hitValues[sseqid_p].c_str()), refgenesToCheck)) //lisa
 				{
 					//cout << "keep devrait passer à 1" << endl; //lisa
 					keep = 1; //lisa : 0 -> 1
+					//if (atoll(hitValues[qseqid_p].c_str()) == 727 or atoll(hitValues[sseqid_p].c_str()) == 727)//lisa
+					//{//lisa
+					//	cout << "arrete avec 727 : " << atoll(hitValues[qseqid_p].c_str()) << " " << atoll(hitValues[sseqid_p].c_str()) << endl; //lisa
+					//}//lisa
 				}
 			}
 			//cout << hit << endl;
@@ -159,6 +166,7 @@ void loadNetwork(string fileIn, string geneList, float pidentLimit, double evalu
 				localGenes[sseqid] = geneInfo(slen,false,0,0,0);
 			}
 		}
+		//cout << "finalement, on parcours  " << cmp << endl; //lisa
 	}
 	mtx.lock();
 	//
@@ -246,7 +254,7 @@ void runLoadNetwork( string fileIn, string geneList, float pidentLimit, double e
 		n++;
 		compt ++;
 	}
-	cout << "######  nb de genes?  ##########\n" << compt <<  "\n##################################\n" << endl;//lisa
+	//cout << "######  nb de genes?  ##########\n" << compt <<  "\n##################################\n" << endl;//lisa
 	sort(nodesDegree.begin(),nodesDegree.end());
 }
 
@@ -268,7 +276,7 @@ void initializeGeneList(string blastpGenesFile, map<unsigned long long int, bool
 			geneIsVisited[atoll(gene.c_str())]=false;
 			compt ++ ;//lisa
 		}
-	cout << "nb of genes that came in in initializeGeneList : " << compt << endl; //lisa
+	//cout << "nb of genes that came in in initializeGeneList : " << compt << endl; //lisa
 	}
 }
 //end

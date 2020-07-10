@@ -324,7 +324,7 @@ int main(int argc, char * argv[])
 	}
 	duration( start, end, verbose );
 	cout << endl;
-	assert(genes.size() != 0 && "Caution, the network is empty");
+	assert(genes.size() != 0 && "Caution, the network is empty"); //lisa : get out of the programm is the network is empty
 	if( verbose == 1 )
 	{
 		cout << "---------- NETWORK INFO ----------" << endl << endl;

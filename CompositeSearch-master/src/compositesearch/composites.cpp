@@ -53,10 +53,10 @@ void composites( map<unsigned int, list<unsigned long long int> >& refSubNodes, 
 		refSubNodes[l].pop_front();
 		// Composite candidate genes neighbors
 		vector<unsigned long long int> compositeNeighbors = genes[composite].getNeighbors();
-		if (composite == 727)
-		{
-			cout << "Gene  " << composite << " et son entourage " << endl; //lisa
-		}
+		//if (composite == 727)
+		//{
+		//	cout << "Gene  " << composite << " et son entourage " << endl; //lisa
+		//}
 		vector<unsigned long long int> components;
 		vector<unsigned long long int>& refCP = components;
 		if(geneFamilies[genes[composite].getFamilyID()].getSize() >= compositeFamMinSize)
@@ -68,17 +68,17 @@ void composites( map<unsigned int, list<unsigned long long int> >& refSubNodes, 
 				// Remove the gene from compositeNieghbor
 				compositeNeighbors.pop_back();
 				// Get composite and neighbor hit evalue
-				if (composite == 727)
-				{
-					cout <<  neighbor <<  endl; //lisa
-				}
+				//if (composite == 727)
+				//{
+				//	cout <<  neighbor <<  endl; //lisa
+				//}
 				if(genes[composite].getFamilyID() != genes[neighbor].getFamilyID() && geneFamilies[genes[neighbor].getFamilyID()].getSize() >= componentFamMinSize)
 				{
 					components.push_back(neighbor);
-					if (composite == 727)
-					{
-						cout <<  neighbor <<  endl; //lisa
-					}
+				//	if (composite == 727)
+				//	{
+				//		cout <<  neighbor <<  endl; //lisa
+				//	}
 				}
 			}
 		}
