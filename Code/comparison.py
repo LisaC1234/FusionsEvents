@@ -76,6 +76,7 @@ def main():
 	diffuse_results = read_Diffuse_results(fasta)
 	#print(diffuse_results)
 	list_uniprot_Diffuse = []
+	compt_network_members = 0
 	for event in diffuse_results.keys():
 		compo = diffuse_results[event][0][1]
 		if compo not in list_uniprot_Diffuse:
@@ -86,10 +87,16 @@ def main():
 	for Comp in list_uniprot_Diffuse:
 		if Comp not in list_uniprot_CompositeSearch:
 			print('Caution, the composite : ', Comp , ' is not detected by CompositeSearch')
+			if Comp in dico_names.values():
+				print('\talthough it is in the network used by CompositeSearch')
+				compt_network_members +=1
 		else :
 			print('The composite : ', Comp, 'detected by Diffuse is also detected by CompositeSearch')
 			compteur +=1
-	print(compteur, ' composites are found both by CompositeSearch and Diffuse')
+			compt_network_members +=1
+	print('\n\nRecap : \n')
+	print(compteur, 'composites are found both by CompositeSearch and Diffuse, among the', len(list_uniprot_Diffuse), 'composites found by Diffuse')
+	print(compt_network_members, 'Diffuse composites are found in the network used by CompositeSearch')
 	
 if __name__ == "__main__":
 	main()
