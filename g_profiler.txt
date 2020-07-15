@@ -1,0 +1,6 @@
+gost(query = as.list(gene_lists[x]), organism = "mmusculus", domain_scope = "annotated", 
+                   significant = T, evcodes = TRUE, sources = c("GO", "KEGG", "REACTOME"))
+                   
+                   https://biit.cs.ut.ee/gprofiler/page/r
+                   
+                   R studio
