@@ -1,0 +1,35 @@
+gost(query = as.list(gene_lists[x]), organism = "mmusculus", domain_scope = "annotated", 
+                   significant = T, evcodes = TRUE, sources = c("GO", "KEGG", "REACTOME"))
+                   
+                   https://biit.cs.ut.ee/gprofiler/page/r
+                   
+                   R studio
+                   
+                   
+                   
+Exemple de script R :                   
+script R pour l'usage de immuneSIM :
+
+library(immuneSIM)
+
+sim_repertoire <- immuneSIM(
+        number_of_seqs = 100,
+        species = "hs", #homo sapiens
+        receptor = "ig", # immunoglobulin
+        chain = "h")
+        
+#user_degined_alpha = 2 # permet de régler le param de la loi de puissance utilisée pour calculer le nombre de séquences par clusters. *********** C'est ce param sur lequel il faut influer pour avoir des patient monoclonaux****************
+#verbose= TRUE
+
+save(sim_repertoire,ascii=TRUE,file="test_sim_repertoire.txt")
+
+#output plots on repertoire (Note: you need to specify output directory)
+plot_report_repertoire(sim_repertoire, output_dir="my_directory/")
+
+
+random_repertoire <- immuneSIM(number_of_seqs = 10,
+                     name_repertoire = "random",
+                     random = TRUE,
+                         verbose = TRUE
+                     )
+write.table(sim_repertoire, "essai_csv.csv")

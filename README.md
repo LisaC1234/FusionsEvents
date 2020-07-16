@@ -1,5 +1,7 @@
 # FusionsEvents
-
+## Pre-requisite to use this code : 
+* R library gprofiler2
+* Python library : Networkx, dash, pandas, colour
 ## Run the CompositeSearch algorithm, put the fasta with all the sequences in /Data 
 ```diff
 $./launcher.sh

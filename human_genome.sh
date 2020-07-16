@@ -35,7 +35,7 @@ if [ $run = 'al' ];then
 			rm my_prot_blast_db.phr my_prot_blast_db.pin my_prot_blast_db.psq 
 		fi
 		################################################# Cleaning the network
-		./CompositeSearch-master/bin/cleanblastp -i $ALIGN -n 1 &
+		./Code/CompositeSearch-master/bin/cleanblastp -i $ALIGN -n 1 &
 		pid3=$!
 		wait $pid3
 
@@ -43,7 +43,7 @@ if [ $run = 'al' ];then
 
 
 		################################################ Applying CompositeSearch on the network 
-		./CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" &
+		./Code/CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" &
 		pid4=$!
 		wait $pid4
 

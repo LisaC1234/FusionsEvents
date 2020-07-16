@@ -3,7 +3,7 @@
 read -p 'Enter the name of the fasta file you want to analyse (for exemple uniprot-proteomeUP000000589) ' fasta 
 read -p 'How much core do you want to allow to this work ? ' core
 
-export DATA="$PWD/Data/$fasta.fasta"
+export DATA="$PWD/Data/fasta_databases/$fasta.fasta"
 export ALIGN="$PWD/$fasta"
 export FILE="$fasta""_cleanNetwork_composites"
 
@@ -29,7 +29,7 @@ export E="1e-10"
 export P="50"
 export C="80"
 
-./CompositeSearch-master/bin/cleanblastp -i $ALIGN -n 1 & # -p $P 
+./Code/CompositeSearch-master/bin/cleanblastp -i $ALIGN -n 1 & # -p $P 
 pid3=$!
 wait $pid3
 
@@ -44,11 +44,11 @@ read -p 'Do you want to use a list of genes? enter the path to the file from thi
 if [ "$path" == "" ]
 then
 ################################################ Applying CompositeSearch on the network 
-	./CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" &&  export A_FONCTIONNE="true"
+	./Code/CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" &&  export A_FONCTIONNE="true"
 
 
 else
-	./CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" -g $path && export A_FONCTIONNE="true"
+	./Code/CompositeSearch-master/bin/compositeSearch -i "$ALIGN.cleanNetwork" -n "$ALIGN.cleanNetwork.genes" -m composites -e "$E" -p "$P" -c "$C" -t "$core" -g $path && export A_FONCTIONNE="true"
 fi
 ############################################## Cleaning the repertories
 
