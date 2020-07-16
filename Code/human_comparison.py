@@ -5,17 +5,23 @@ from subprocess import Popen, PIPE
 
 def read_fasta(list_uniprot):
 	res = {}
+	list_inconnus = []
 	l = list(range(1,23)) + ['x','y']
 	for i in l:
 		res[i] = []
 	for gene in list_uniprot:
+		trouv = False
 		for numb in l:
 			cmd = ["grep", "-c", gene, "Data/Human_by_chromosome/chromosome_"+str(numb)+".fasta"]
 			p = Popen(cmd, stdout=PIPE, stderr=PIPE)
 			stdout, stderr = p.communicate()
 			if "1" in str(stdout):
 				res[numb].append(gene)
+				trouv = True
 				break
+		if not trouv:
+			list_inconnus.append(gene)
+	#print(list_inconnus)
 	return res
 
 		
