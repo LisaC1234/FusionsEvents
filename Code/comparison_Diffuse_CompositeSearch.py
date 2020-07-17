@@ -3,6 +3,9 @@
 import argparse
 import parseur_Diffuse
 
+
+
+
 def parse_arguments():
 	parser = argparse.ArgumentParser()
 	parser.add_argument("-f","--fasta",help="""Name of the fasta database to use, after the launcher have been applied on the same database. The associated Diffuse result should be in Result/Diffuse_results/ with the same name + _diffuse.txt""")
