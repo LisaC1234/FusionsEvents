@@ -132,7 +132,7 @@ def num_int(token, compt):
 ####################################################
 
 def reader(path): #supposed to be a one line file
-	res = pandas.DataFrame(columns=['component', 'composite', 'component start', 'component end', 'composite start', 'composite end'])
+	res = pandas.DataFrame(columns=['component', 'composite', 'component_start', 'component_end', 'composite_start', 'composite_end'])
 	with open(path, "r") as result_file:
 		for line in result_file :
 			d = dictionnaire(line.strip())

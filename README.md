@@ -30,3 +30,10 @@ Note : Only for the human proteome for now.
 ```diff
 $python3 Code/human_comparison.py 
 ```
+
+## To use the clean_project
+Note : It require the Diffuse results
+```diff
+$python3 clean_project/main.py -i [blast alignment] -d [diffuse file] -c [number of core to use]
+```
+
