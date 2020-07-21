@@ -1,17 +1,18 @@
 #! /usr/bin/env python3
 # coding: utf-8
 import os
-#import sys
 import subprocess
 import pandas
 import readCompositeSearch
 pwd = os.getcwd()
-#sys.path.append(pwd+'/algoCluster/Input_Output') # Fonctionne sur windows et linux, et permet d'indiquer dans quel fichier sont les modules. 
+
 E="1e-10" 
 P="50"
 C="80"
 clean_b = "./Code/CompositeSearch-master/bin/cleanblastp"
 compSearch = "./Code/CompositeSearch-master/bin/compositeSearch"
+data_option_g_path = "Data/"
+result_path = 'Result/'
 
 
 def prepare_option_g(g, repertory):
@@ -21,7 +22,7 @@ def prepare_option_g(g, repertory):
 	if not os.path.exists(repertory):
 		compositeSearch(file, [], core) # run compositeSearch a first time to get the dictionnary
 	dico = readCompositeSearch.extract_dictionary(repertory+ '/'+ organism + '.cleanNetwork.dico')
-	path = "Data/option_g/" + organism + ".txt"
+	path = data_option_g_path + organism + ".txt"
 	with open(path, "w") as target:
 		for gene in g:
 			for key, value in dico.items():
@@ -35,17 +36,17 @@ def prepare_option_g(g, repertory):
 def compositeSearch(file, g, core):
 
 	name = file.split('/')[-1].split('.')[0]
-	repertory = 'Result/' + name + '_cleanNetwork_composites'
+	repertory = result_path + name + '_cleanNetwork_composites'
 	################# Running clean_blastp #####
 	cmd1 = [clean_b , "-i",file , "-n", "1" ]
-	step1 = subprocess.run(cmd1)
+	step1 = subprocess.run(cmd1, capture_output=True)
 	############ Running CompositeSearch #######
 	i = name + ".cleanNetwork"
 	n = name + ".cleanNetwork.genes"
 	cmd2 = [compSearch,  "-i", i , "-n", n, "-m", "composites", "-e", E, "-p", P, "-c", C, "-t", core]
 	option_g = prepare_option_g(g, repertory)
 	cmd2 = cmd2 + option_g
-	step2 = subprocess.run(cmd2)
+	step2 = subprocess.run(cmd2, capture_output=True)
 	######## Cleaning the repertory ############
 	if option_g != []:
 		cmd = 'rm ' + option_g[1]
@@ -77,9 +78,8 @@ def blast(file, g, core): # the input is a blast file, only CompositeSearch need
 	
 def fasta(file, g, core): # the input is a fasta file, a blast alignment is needed. 
 	cmd = ['makeblastdb',  '-in' , file , '-dbtype','prot','-out','my_prot_blast_db']
-	print(cmd)
 	blast1 = subprocess.run(cmd)
-	align = file.split('.')[0]
+	align = file.split('.')[0].split('/')[-1]
 	cmd = ['blastp','-db','my_prot_blast_db','-query' ,file , '-out' ,align , '-seg','yes','-soft_masking','true','-max_target_seqs','10000','-outfmt','6 qseqid sseqid evalue pident bitscore qstart qend qlen sstart send slen','-num_threads', str(core)]
 	blast2 = subprocess.run(cmd)
 	if blast2.returncode == 0 :
@@ -90,4 +90,30 @@ def fasta(file, g, core): # the input is a fasta file, a blast alignment is need
 		return compositeSearch('Data/Blast_Alignments/'+align, g, core)
 	else :
 		raise ValueError('There is a problem with blast, please unsure that you are using the right fasta format.')
+		
+		
+def ch_blast(path, g, core):
+	cmd =[ "ls", path]
+	ls = subprocess.check_output(cmd)
+	liste = ls.split()
+	res = []
+	for name in liste:
+		correct_name = str(name).strip('b')
+		correct_name = correct_name.strip('\'')
+		current_path = path + "/" + correct_name
+		res.append(compositeSearch(current_path, g, core))
+	return res
+		
+		
+def ch_fasta(path, g, core):
+	cmd =[ "ls", path]
+	ls = subprocess.check_output(cmd)
+	liste = ls.split()
+	res = []	
+	for name in liste:
+		correct_name = str(name).strip('b')
+		correct_name = correct_name.strip('\'')
+		current_path = path + "/" + correct_name
+		res.append(fasta(current_path, g, core))
+	return res
 	
