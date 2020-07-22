@@ -6,9 +6,10 @@ import networkx as nx
 
 
 def create_graph(comp,target):
-	test = comp.query("ch_composite == " + str(target))
-	print(test)
-	res = nx.random_geometric_graph(200, 0.125)
+	reduced_comp = comp.loc[comp["ch_composite"] == str(target)]# only the edges involving target chromosome
+	#reduced_comp.to_csv(r'reduced.csv')
+	res = nx.random_geometric_graph(10, 0.125)
+	#res = nx.from_pandas_dataframe(reduced_comp, "composite", "component", edge_attr=["ch_composite", "ch_component"])
 	return res
 
 def print_network(comp,target):

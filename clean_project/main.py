@@ -72,9 +72,9 @@ def main():
 		list_ch = readCompositeSearch.multiple_reader(list_repertories)
 		print('here')
 		analyse.by_chromosome(diffuse, compositeSearch, list_ch)
-		compositeSearch = readCompositeSearch.enrich_blast(compositeSearch, arg_path)
+		compositeSearch = readCompositeSearch.enrich_blast(compositeSearch, arg_path) # take some time, is it possible to optimise ? 
 		print(compositeSearch)
-		printChromosome.print_network(compositeSearch,19)
+		printChromosome.print_network(compositeSearch,1)
 
 	elif args.chr_fasta:
 		pass # todo
