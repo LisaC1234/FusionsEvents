@@ -1,2 +1,0 @@
-la requette dans uniprot : 
-name:"zinc finger" AND reviewed:yes AND organism:"Homo sapiens (Human) [9606]" AND proteome:up000005640

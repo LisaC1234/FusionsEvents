@@ -12,7 +12,7 @@ C="80"
 clean_b = "./Code/CompositeSearch-master/bin/cleanblastp"
 compSearch = "./Code/CompositeSearch-master/bin/compositeSearch"
 data_option_g_path = "Data/"
-result_path = 'Result/'
+result_path = 'Result/CompositeSearch_results/'
 
 
 def prepare_option_g(g, repertory):
@@ -64,7 +64,7 @@ def compositeSearch(file, g, core):
 		if os.path.exists(repertory):
 			cmd = 'rm -r ' + repertory
 			os.system(cmd)
-		cmd = 'mv ' + name + '_cleanNetwork_composites Result/' 
+		cmd = 'mv ' + name + '_cleanNetwork_composites ' + result_path 
 		os.system(cmd)
 	else :
 		cmd = 'rm -r ' + name + '_cleanNetwork_composites'
