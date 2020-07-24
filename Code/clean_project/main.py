@@ -29,10 +29,10 @@ def parse_arguments():
 	parser.add_argument("--g", action='store_true', dest= 'g_option', help="""This will take the composite of Diffuse to feed the option -g of CompositeSearch.""") # define an optional option, therefore algo is to use to run CompositeSearch on the input
 	
 ########For an analyse only with CompositeSearch, amond the genome in details
-	parser.add_argument("-chr_blast", metavar="[Chromosomes]", help="""With this option, you can add the details of each chromosome composition. The path must be a repertory containing a blast_alignment file for each chromosome.""") # define an optional option, therefore algo is to use to run CompositeSearch on the input
+	parser.add_argument("-ch", metavar="[Chromosomes]", help="""With this option, you can add the details of each chromosome composition. The path must be a repertory containing a blast_alignment file for each chromosome. If only fasta files are available, the option --fasta_ch must be used.""") # define an optional option, therefore algo is to use to run CompositeSearch on the input
 	
-	parser.add_argument("-chr_fasta", metavar="[Chromosomes]", help="""With this option, you can add the details of each chromosome composition. The path must be a repertory containing a fasta file for each chromosome.""") # define an optional option, therefore algo is to use to run CompositeSearch on the input
 	
+	parser.add_argument("--fasta_ch", dest='algo_ch', action='store_const', const=applyCompositeSearch.ch_fasta, default=applyCompositeSearch.ch_blast,help="""To use only if the blast alignments are not available. Repository database should be a fasta database.""") # define an optional option, therefore algo is to use to run CompositeSearch on the input
 	return parser.parse_args()
 	
 	
@@ -68,38 +68,22 @@ def main():
 	
 	
 	###### Get infos by chromosomes ############
-	elif args.chr_blast:
-		print('you choose a detailed analysis of the genome, using blast alignments for each chromosome')
+	elif args.ch:
+		print('you choose a detailed analysis of the genome')
 		g = []
 		file = args.algo(path_input, g, core) #apply compositeSearch, either with the blast alignment or with a fasta file
 		compositeSearch = readCompositeSearch.reader(file)
+		arg_path = args.ch
+		list_repertories, path_blast = args.algo_ch(arg_path, [], core) #list_repertories is a list of the location of the result files
 		
-		arg_path = args.chr_blast
-		list_repertories = applyCompositeSearch.ch_blast(arg_path, [], core) #list_repertories is a list of the location of the result files
-		
-
+		compositeSearch = readCompositeSearch.enrich_blast(compositeSearch, path_blast)
+		compositeSearch.to_csv(r'compositeSearch_resutl.csv')
+		print('ici')
 		list_ch = readCompositeSearch.multiple_reader(list_repertories) # list_ch is a list of pandas matrix for each chromosome
+		print(type(list_ch[0]))
+		analyse.by_chromosome(compositeSearch, list_ch)
 		
-		analyse.by_chromosome(diffuse, compositeSearch, list_ch)
-		
-		compositeSearch = readCompositeSearch.enrich_blast(compositeSearch, arg_path) # take some time, is it possible to optimise ? 
-		printChromosome.print_network(compositeSearch,19)
-
-	elif args.chr_fasta:
-		print('you choose a detailed analysis of the genome, using fasta files for each chromosome')
-		g = []
-		file = args.algo(path_input, g, core) #apply compositeSearch, either with the blast alignment or with a fasta file
-		compositeSearch = readCompositeSearch.reader(file)
-		
-		arg_path = args.chr_fasta
-		list_repertories = applyCompositeSearch.ch_fasta(arg_path, [], core) #list_repertories is a list of the location of the result files
-		
-
-		list_ch = readCompositeSearch.multiple_reader(list_repertories) # list_ch is a list of pandas matrix for each chromosome
-		
-		analyse.by_chromosome(diffuse, compositeSearch, list_ch)
-		
-		compositeSearch = readCompositeSearch.enrich_blast(compositeSearch, arg_path) # take some time, is it possible to optimise ? 
+		 # take some time, is it possible to optimise ? 
 		printChromosome.print_network(compositeSearch,19)
 	
 	else :

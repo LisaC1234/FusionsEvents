@@ -58,7 +58,11 @@ def reader(path): #to the repertory with all the CompositeSearch results files
 def multiple_reader(paths):
 	res = []
 	for path in paths: 
-		res.append(reader(path))
+		name = path.split('/')[-1][:-24].split('_')[-1]
+		temp = reader(path)
+		temp["ch_composite"]=name
+		temp["ch_component"]=name
+		res.append(temp)
 	return res
 	
 	

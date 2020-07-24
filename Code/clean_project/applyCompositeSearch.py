@@ -13,7 +13,7 @@ clean_b = "./Code/CompositeSearch-master/bin/cleanblastp"
 compSearch = "./Code/CompositeSearch-master/bin/compositeSearch"
 data_option_g_path = "Data/"
 result_path = 'Result/CompositeSearch_results/'
-
+path_blast_alignments = 'Data/Blast_Alignments/'
 
 def prepare_option_g(g, repertory):
 	if g == []:
@@ -82,7 +82,7 @@ def blast(file, g, core): # the input is a blast file, only CompositeSearch need
 	return compositeSearch(file, g, core)
 	
 	
-def fasta(file, g, core): # the input is a fasta file, a blast alignment is needed. 
+def fasta_path(file, g, core, path): # the input is a fasta file, a blast alignment is needed. 
 	cmd = ['makeblastdb',  '-in' , file , '-dbtype','prot','-out','my_prot_blast_db']
 	blast1 = subprocess.run(cmd)
 	align = file.split('.')[0].split('/')[-1]
@@ -93,11 +93,12 @@ def fasta(file, g, core): # the input is a fasta file, a blast alignment is need
 	os.system('rm my_prot_blast_db.pin')
 	os.system('rm my_prot_blast_db.psq')
 	if blast2.returncode == 0 :
-		os.system('mv ' + align + ' ' + 'Data/Blast_Alignments/')
-		return compositeSearch('Data/Blast_Alignments/'+align, g, core)
+		os.system('mv ' + align + ' ' + path)
+		return compositeSearch(path + align, g, core)
 	else :
 		raise ValueError('There is a problem with blast, please unsure that you are using the right fasta format.')
-		
+def fasta(file, g, core):
+	return fasta_path(file, g, core, path_blast_alignments)	
 		
 def ch_blast(path, g, core):
 	cmd =[ "ls", path]
@@ -109,18 +110,22 @@ def ch_blast(path, g, core):
 		correct_name = correct_name.strip('\'')
 		current_path = path + "/" + correct_name
 		res.append(compositeSearch(current_path, g, core))
-	return res
+	return res , path
 		
 		
 def ch_fasta(path, g, core):
 	cmd =[ "ls", path]
 	ls = subprocess.check_output(cmd)
 	liste = ls.split()
-	res = []	
+	res = []
+	organisme = str(liste[0]).strip('b').strip('\'').split('_')[0]
+	file = path_blast_alignments + organisme
+	cmd = 'mkdir ' + file
+	os.system(cmd)
 	for name in liste:
 		correct_name = str(name).strip('b')
 		correct_name = correct_name.strip('\'')
 		current_path = path + "/" + correct_name
-		res.append(fasta(current_path, g, core))
-	return res
+		res.append(fasta_path(current_path, g, core, file))
+	return res, path_blast_alignments
 	

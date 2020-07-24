@@ -19,27 +19,43 @@ def comparison(diff, comp):
 
 
 		
-def by_chromosome(diff, comp, list_ch):
-	
+def by_chromosome(comp, list_ch):
+	vert = '\\textcolor{vert}{\\textbf{'
+	orange = '\\textcolor{orange}{\\textbf{'
+	rose = '\\textcolor{rose}{\\textbf{'
+	fin = '}} '
 	output_path = "test.tex"
 	with open(output_path, "w") as res:
-		res.write("\\begin{table}[H]\n\t\\centering\n\t\\begin{tabular}{||l|c|c|c|c||}\n\t\t\\hline\\hline\n\t\tChromosome&Genes&Composites&Components (uniques)&Families of composites\\\\\n\t\t\\hline\\hline")
+		res.write("\\begin{table}[H]\n\t\\centering\n\t\\begin{tabular}{||l|c|c|c|c||}\n\t\t\\hline\\hline\n\t\tChromosome&Genes&Composites&Components (uniques)&Families of composites\\\\\n\t\t\\hline\\hline\n")
 		for ch in list_ch:
-			
-			numb = ch.loc[0]["ch_composite"]
-			print(numb)
-			target_comp = comp.loc[comp["ch_composite"] == numb]
-			print(len(set(target_comp["composite"]))) # nb of composite for the all vs all analysis
-			print(len(set(ch["composite"]))) # nb of composite for the one by one analysis 
-			print(len(set(target_comp["composite"]).intersection(set(ch["composite"])))) # intersection of the results
-			
-			print(len(set(ch["composite_fam"]))) # nb of families for the one by one analysis
-			print(len(set(target_comp["composite_fam"]))) # nb of families for the all vs all analysis
-			print(len(set(ch["component"])))
-			print(len(set(target_comp["component"])))
-			print(len(ch["component"]))
-			print(len(target_comp["component"]))
+			if not ch.empty: 
+				numb = ch.loc[0]["ch_composite"]
+				#first = ch.loc[0]["composite"]
+				#first_assoc = comp.loc[comp["composite"] == first]
+				#numb = first_assoc["ch_composite"].tolist()[0]
+				res.write('chromosome ' + str(numb) + '&..&') # how to obtain le numer of genes per ch ?
+				target_comp = comp.loc[comp["ch_composite"] == numb]
+				
+				res.write(vert + str(len(set(ch["composite"]))) + fin + orange +  str(len(set(target_comp["composite"]).intersection(set(ch["composite"])))) + fin + rose + str(len(set(target_comp["composite"]))) + fin + '&') # nb of composite for the all vs all analysis
+				 # nb of composite for the one by one analysis 
+				# intersection of the results
+				one_by_one = str(len(ch["component"])) + ' (' + str(len(set(ch["component"]))) + ')'
+				all_vs_all = str(len(target_comp["component"]))+ ' (' + str(len(set(target_comp["component"]))) + ')'
+				res.write(vert + str(one_by_one) + fin + rose + str(all_vs_all) + fin + '&')
+				
+				
+				res.write(vert + str(len(set(ch["composite_fam"]))) + fin + rose + str(len(set(target_comp["composite_fam"]))) + fin + '\\\\\n\\hline\n')
+			else :
+				#todo
+				pass
 		res.write("\\hline\n\t\t\\end{tabular}\n\t\\caption{TODO}\n\t\\label{tab:TODO}\n\\end{table}")
 
-
-	#print(list_ch[23]["composite"])
+def translate(x):
+	if x =='x':
+		return 23
+	if x == 'y':
+		return 24
+	if x == -1:
+		return 25
+	else : 
+		return int(x)
