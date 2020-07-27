@@ -2,38 +2,10 @@
 ## Pre-requisite to use this code : 
 * R library gprofiler2
 * Python library : Networkx, dash, pandas, colour
-## Run the CompositeSearch algorithm, put the fasta with all the sequences in /Data 
-```diff
-$./launcher.sh
-```
-All the files generated will be found in the file 
-```diff
-$/Name_of_your_data_base_composites_from_CompositeSearch
-```
-
-## Run CompositeSearch on every chromosome (for the Human protéome only)
-(it will generate a markdown file with the results as a table for every chromosomes)
-```diff
-$./human_genome.sh
-```
-
-## Analyse the results of Composite search compared to Diffuse
-Note : the Diffuse results should have the same name as the database used to compute CompositeSearch, and should be placed in 
-Result/Diffuse_result/database_name_diffuse.txt
-```diff
-$python3 Code/comparison.py -f *name of the database*
-```
 
 
-## Compare the results for the same proteome, chromosomes by chromosomes and all in once
-Note : Only for the human proteome for now. 
+## How to get help : 
 ```diff
-$python3 Code/human_comparison.py 
-```
-
-## To use the clean_project
-Note : It require the Diffuse results
-```diff
-$python3 clean_project/main.py -i [blast alignment] -d [diffuse file] -c [number of core to use]
+$python3 Code/main.py -h
 ```
 
