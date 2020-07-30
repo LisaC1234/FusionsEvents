@@ -23,6 +23,9 @@ def create_graph(comp,target):
 		reduced_comp = comp
 	else :
 		reduced_comp = comp.loc[comp["ch_composite"] == str(target)]# only the edges involving target chromosome
+		with open(r'target_composite.txt', 'w') as targ_file:
+			for n in set(reduced_comp["composite"]):
+				targ_file.write(n.split('|')[1] + '\n')
 	G = nx.Graph()
 	
 	dico_status = {}
@@ -186,7 +189,7 @@ def print_network(comp,target):
 				hovermode='closest',
 				margin=dict(b=20,l=5,r=5,t=40),
 				annotations=[ dict(
-					text="Python code: <a href='https://plotly.com/ipython-notebooks/network-graphs/'> https://plotly.com/ipython-notebooks/network-graphs/</a>",
+					text="Colors show the chromosome of the gene",
 					showarrow=False,
 					xref="paper", yref="paper",
 					x=0.005, y=-0.002 ) ],

@@ -23,7 +23,8 @@ def parse_arguments():
 	parser.add_argument("-c", metavar="[# Core to use]",help="""Number of core to use for the computation.""", required=True)
 	
 	parser.add_argument("--fasta", dest='algo', action='store_const', const=applyCompositeSearch.fasta, default=applyCompositeSearch.blast,help="""To use only if the blast alignment is not available. Database should be a fasta database.""") # define an optional option, therefore algo is to use to run CompositeSearch on the input
-	parser.add_argument("-gProfiler", metavar="[Name of the organism (hsapiens)]",help="""The output of gProfiler will be stored in Results/gProfiler, as a csv file. For more informations about the organism ID, see : https://biit.cs.ut.ee/gprofiler/page/organism-list.""" )
+	
+	parser.add_argument("-gProfiler", metavar="[Name of the organism]",help="""The output of gProfiler will be stored in Results/gProfiler, as a csv file. For more informations about the organism ID, see : https://biit.cs.ut.ee/gprofiler/page/organism-list.""" )
 	
 ########For the analyse with Diffuse
 	parser.add_argument("--d", metavar="[Diffuse output]",help="""Path to the output file from Diffuse for the same database.""")
@@ -54,7 +55,8 @@ def main():
 	reading_CompositeSearch = False ### memorise if the CompositeSearch files have already been read. 
 	######## Extract the diffuse result ########
 	if args.d:
-		print('you will see the comparison between Diffuse and Composite Search for the entry')
+		print('The results of CompositeSearch and Diffuse will be compaired. ')
+		organism = path_input.split('/')[-1]
 		path_diffuse = args.d
 		diffuse = readDiffuse.reader(path_diffuse) #return a pandas object
 	
@@ -68,7 +70,7 @@ def main():
 		reading_ComopsiteSearch = True
 	
 	###### Compare the results #################
-		analyse.comparison(diffuse, compositeSearch)
+		analyse.comparison(diffuse, compositeSearch, organism)
 	
 
 	
@@ -76,7 +78,7 @@ def main():
 	elif args.ch:	
 	
 	###### Get infos by chromosomes ############
-		print('you choose a detailed analysis of the genome')
+		print('A detailed analysis over the genome will run, using information from chromosome by chromosome computation')
 		g = []
 		organism = path_input.split('/')[-1]
 		
@@ -102,6 +104,9 @@ def main():
 	else :
 		print('CompositeSearch will be applied on the entry')
 		file = args.algo(path_input, [], core) # only apply CompositeSearch
+		compositeSearch = readCompositeSearch.reader(file)
+		organism = path_input.split('/')[-1]
+		compositeSearch.to_csv(organism +'_compositeSearch_resutl.csv')
 	if args.gProfiler:
 		organism_gProfiler = args.gProfiler
 		if not reading_CompositeSearch:
