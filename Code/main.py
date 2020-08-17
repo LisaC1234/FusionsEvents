@@ -91,7 +91,7 @@ def main():
 		compositeSearch = readCompositeSearch.enrich_blast(compositeSearch, path_blast)
 		
 		
-		compositeSearch.to_csv(organism +'compositeSearch_resutl.csv')
+		compositeSearch.to_csv(organism +'compositeSearch_result.csv')
 
 		list_ch = readCompositeSearch.multiple_reader(list_repertories) # list_ch is a list of pandas matrix for each chromosome
 
@@ -106,7 +106,7 @@ def main():
 		file = args.algo(path_input, [], core) # only apply CompositeSearch
 		compositeSearch = readCompositeSearch.reader(file)
 		organism = path_input.split('/')[-1]
-		compositeSearch.to_csv(organism +'_compositeSearch_resutl.csv')
+		compositeSearch.to_csv(organism +'_compositeSearch_result.csv')
 	if args.gProfiler:
 		organism_gProfiler = args.gProfiler
 		if not reading_CompositeSearch:

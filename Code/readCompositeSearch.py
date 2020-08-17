@@ -28,7 +28,7 @@ def extract_composites_infos(path):
 
 def reader(path): #to the repertory with all the CompositeSearch results files
 	organism = path.split('/')[-1][0:-24]
-	res = pandas.DataFrame(columns=['component', 'composite', 'composite_start', 'composite_end', 'component_fam', 'composite_fam', 'no_overlap_score']) # composite_fam will be added later
+	res = pandas.DataFrame(columns=['component', 'composite', 'composite_start', 'composite_end', 'component_fam', 'domain', 'composite_fam', 'no_overlap_score']) # composite_fam will be added later
 	
 	if os.path.exists(path):
 		dico = extract_dictionary(path + '/' + organism + '.cleanNetwork.dico')
@@ -37,16 +37,21 @@ def reader(path): #to the repertory with all the CompositeSearch results files
 		
 		ind = 0
 		with open(path +'/' + organism + '_cleanNetwork.composites', "r") as result_file:
+			#domain = 0
 			for line in result_file :
 				if line.startswith('>'):
 					num = line.strip()[2:]
 					composite = dico[num]
 				elif line.startswith('F'):
+					print(domain)
 					infos = line.strip().split('\t')
-					temp = [dico[infos[1]], composite, int(infos[2]), int(infos[3]), infos[0]]
+					temp = [dico[infos[1]], composite, int(infos[2]), int(infos[3]), infos[0], domain]
 					temp = temp + composites_infos[num]
 					res.loc[ind] = temp
 					ind +=1
+				elif line.startswith('['):
+					domain = int(line.strip().split('\t')[0][-2:-1])
+					print('\n\n',domain)
 	
 	return res
 
