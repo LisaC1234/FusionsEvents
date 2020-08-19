@@ -1,0 +1,354 @@
+Diffuse         found 898 different composites.
+CompositeSearch found 526 different composites.
+Among them,           116 are in both results composites list.
+
+
+
+###############################################
+The composite :sp|Q8WYB5|KAT6B_HUMAN is unanimously composed with the following components : sp|O95251|KAT7_HUMAN,sp|Q92785|REQU_HUMAN,sp|Q96BD5|PF21A_HUMAN,3
+among : 7 components found by Diffuse and : 4 components found by CompositeSearch
+###############################################
+The composite :sp|Q9NZV7|ZIM2_HUMAN is unanimously composed with the following components : sp|Q9GZU2|PEG3_HUMAN,sp|Q15697|ZN174_HUMAN,2
+among : 80 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|Q9UDV6|ZN212_HUMAN is unanimously composed with the following components : sp|Q5EBM4|ZN542_HUMAN,sp|Q75MW2|ZN767_HUMAN,sp|Q6ZMS7|ZN783_HUMAN,3
+among : 95 components found by Diffuse and : 5 components found by CompositeSearch
+###############################################
+The composite :sp|Q6NUN9|ZN746_HUMAN is unanimously composed with the following components : sp|Q75MW2|ZN767_HUMAN,sp|Q6ZMS7|ZN783_HUMAN,2
+among : 150 components found by Diffuse and : 6 components found by CompositeSearch
+###############################################
+The composite :sp|Q63HK3|ZKSC2_HUMAN is unanimously composed with the following components : sp|Q8NBB4|ZSCA1_HUMAN,sp|Q8TBC5|ZSC18_HUMAN,sp|P57086|SCND1_HUMAN,3
+among : 185 components found by Diffuse and : 4 components found by CompositeSearch
+###############################################
+The composite :sp|A5A3E0|POTEF_HUMAN is unanimously composed with the following components : sp|Q6NSI1|AR26L_HUMAN,1
+among : 63 components found by Diffuse and : 22 components found by CompositeSearch
+###############################################
+The composite :sp|Q9Y2J0|RP3A_HUMAN is unanimously composed with the following components : sp|Q9UNE2|RPH3L_HUMAN,1
+among : 13 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|Q9UL58|ZN215_HUMAN is unanimously composed with the following components : sp|Q6R2W3|SCND3_HUMAN,sp|Q15697|ZN174_HUMAN,sp|P57086|SCND1_HUMAN,sp|Q8NE65|ZN738_HUMAN,sp|Q96JS3|PGBD1_HUMAN,5
+among : 147 components found by Diffuse and : 10 components found by CompositeSearch
+###############################################
+The composite :sp|P08236|BGLR_HUMAN is unanimously composed with the following components : sp|Q15486|GUSP1_HUMAN,sp|Q6P575|BGP11_HUMAN,2
+among : 2 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q9P1Y6|PHRF1_HUMAN is unanimously composed with the following components : sp|Q9H7N4|SFR19_HUMAN,sp|P29375|KDM5A_HUMAN,2
+among : 4 components found by Diffuse and : 6 components found by CompositeSearch
+###############################################
+The composite :sp|Q8WVM7|STAG1_HUMAN is unanimously composed with the following components : sp|Q8TBR4|ST3L4_HUMAN,1
+among : 2 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|Q8NC26|ZN114_HUMAN is unanimously composed with the following components : sp|Q6ZQV5|ZN788_HUMAN,sp|Q5JUW0|KRBX4_HUMAN,2
+among : 123 components found by Diffuse and : 4 components found by CompositeSearch
+###############################################
+The composite :sp|Q9UL36|ZN236_HUMAN is unanimously composed with the following components : sp|Q13887|KLF5_HUMAN,1
+among : 48 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|Q96S38|KS6C1_HUMAN is unanimously composed with the following components : sp|Q9NRS6|SNX15_HUMAN,1
+among : 1 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q96GC6|ZN274_HUMAN is unanimously composed with the following components : sp|Q8NBB4|ZSCA1_HUMAN,sp|Q6R2W3|SCND3_HUMAN,sp|Q7RTV3|ZN367_HUMAN,sp|Q9BV97|ZN747_HUMAN,sp|Q9NZV7|ZIM2_HUMAN,sp|Q6ZQV5|ZN788_HUMAN,sp|Q5EBM4|ZN542_HUMAN,sp|P57086|SCND1_HUMAN,sp|Q96JS3|PGBD1_HUMAN,sp|Q6ZN55|ZN574_HUMAN,10
+among : 200 components found by Diffuse and : 16 components found by CompositeSearch
+###############################################
+The composite :sp|O75791|GRAP2_HUMAN is unanimously composed with the following components : sp|Q92783|STAM1_HUMAN,1
+among : 6 components found by Diffuse and : 4 components found by CompositeSearch
+###############################################
+The composite :sp|Q8TBC5|ZSC18_HUMAN is unanimously composed with the following components : sp|Q6R2W3|SCND3_HUMAN,sp|Q9GZW5|SCND2_HUMAN,sp|P57086|SCND1_HUMAN,sp|Q96JS3|PGBD1_HUMAN,4
+among : 6 components found by Diffuse and : 32 components found by CompositeSearch
+###############################################
+The composite :sp|P49792|RBP2_HUMAN is unanimously composed with the following components : sp|P43487|RANG_HUMAN,sp|O14715|RGPD8_HUMAN,2
+among : 3 components found by Diffuse and : 8 components found by CompositeSearch
+###############################################
+The composite :sp|P17022|ZNF18_HUMAN is unanimously composed with the following components : sp|Q8NBB4|ZSCA1_HUMAN,sp|Q9GZW5|SCND2_HUMAN,sp|Q6R2W3|SCND3_HUMAN,sp|Q8N0Y2|ZN444_HUMAN,sp|P57086|SCND1_HUMAN,sp|Q6ZT77|ZN826_HUMAN,sp|Q96JS3|PGBD1_HUMAN,7
+among : 175 components found by Diffuse and : 10 components found by CompositeSearch
+###############################################
+The composite :sp|Q15149|PLEC_HUMAN is unanimously composed with the following components : sp|Q9NQ39|RS10L_HUMAN,sp|P15924|DESP_HUMAN,2
+among : 26 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|Q5TC79|ZBT37_HUMAN is unanimously composed with the following components : 0
+among : 97 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q9H5J0|ZBTB3_HUMAN is unanimously composed with the following components : sp|Q9HAZ2|PRD16_HUMAN,1
+among : 8 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|Q13670|PM2PB_HUMAN is unanimously composed with the following components : sp|Q86UW9|DTX2_HUMAN,sp|Q9BT76|UPK3B_HUMAN,2
+among : 5 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q9NQT8|KI13B_HUMAN is unanimously composed with the following components : sp|O60333|KIF1B_HUMAN,1
+among : 33 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|O14978|ZN263_HUMAN is unanimously composed with the following components : sp|Q8NBB4|ZSCA1_HUMAN,sp|Q6R2W3|SCND3_HUMAN,sp|Q9GZW5|SCND2_HUMAN,sp|P57086|SCND1_HUMAN,4
+among : 184 components found by Diffuse and : 5 components found by CompositeSearch
+###############################################
+The composite :sp|Q9UPS8|ANR26_HUMAN is unanimously composed with the following components : sp|Q6NSI1|AR26L_HUMAN,sp|Q8IYA2|C144C_HUMAN,sp|Q96IX9|A26L1_HUMAN,sp|Q8NF67|A2012_HUMAN,4
+among : 32 components found by Diffuse and : 15 components found by CompositeSearch
+###############################################
+The composite :sp|Q8N568|DCLK2_HUMAN is unanimously composed with the following components : 0
+among : 127 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q9NV72|ZN701_HUMAN is unanimously composed with the following components : sp|P57682|KLF3_HUMAN,sp|Q8N8H1|ZN321_HUMAN,sp|Q9BV97|ZN747_HUMAN,sp|Q8WTZ3|YS049_HUMAN,sp|Q5EBM4|ZN542_HUMAN,sp|Q6ZT77|ZN826_HUMAN,sp|Q8NE65|ZN738_HUMAN,sp|Q5JUW0|KRBX4_HUMAN,sp|Q13887|KLF5_HUMAN,sp|Q9Y4X4|KLF12_HUMAN,10
+among : 186 components found by Diffuse and : 20 components found by CompositeSearch
+###############################################
+The composite :sp|P08519|APOA_HUMAN is unanimously composed with the following components : sp|Q16609|LPAL2_HUMAN,1
+among : 2 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|O75112|LDB3_HUMAN is unanimously composed with the following components : sp|P50479|PDLI4_HUMAN,1
+among : 16 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|Q9NQV7|PRDM9_HUMAN is unanimously composed with the following components : sp|P0CG23|ZN853_HUMAN,sp|Q9NPC7|MYNN_HUMAN,sp|Q15697|ZN174_HUMAN,sp|P51815|ZN75D_HUMAN,sp|Q8N8C0|ZN781_HUMAN,5
+among : 192 components found by Diffuse and : 27 components found by CompositeSearch
+###############################################
+The composite :sp|Q86UQ0|ZN589_HUMAN is unanimously composed with the following components : sp|Q8NE65|ZN738_HUMAN,1
+among : 138 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q92766|RREB1_HUMAN is unanimously composed with the following components : 0
+among : 2 components found by Diffuse and : 5 components found by CompositeSearch
+###############################################
+The composite :sp|P17098|ZNF8_HUMAN is unanimously composed with the following components : sp|Q9BV97|ZN747_HUMAN,sp|Q5EBM4|ZN542_HUMAN,sp|Q6ZT77|ZN826_HUMAN,sp|Q8NDX6|ZN740_HUMAN,sp|Q5JUW0|KRBX4_HUMAN,sp|O60304|ZN500_HUMAN,6
+among : 174 components found by Diffuse and : 8 components found by CompositeSearch
+###############################################
+The composite :sp|Q96RW7|HMCN1_HUMAN is unanimously composed with the following components : sp|Q76LX8|ATS13_HUMAN,sp|Q8TE60|ATS18_HUMAN,sp|Q8WXS8|ATS14_HUMAN,3
+among : 117 components found by Diffuse and : 4 components found by CompositeSearch
+###############################################
+The composite :sp|Q5T619|ZN648_HUMAN is unanimously composed with the following components : sp|Q8TD94|KLF14_HUMAN,1
+among : 32 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q12774|ARHG5_HUMAN is unanimously composed with the following components : sp|A5YM69|ARG35_HUMAN,sp|Q8IW93|ARHGJ_HUMAN,2
+among : 11 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|A6NC57|ANR62_HUMAN is unanimously composed with the following components : sp|Q6NSI1|AR26L_HUMAN,1
+among : 26 components found by Diffuse and : 10 components found by CompositeSearch
+###############################################
+The composite :sp|Q96H86|ZN764_HUMAN is unanimously composed with the following components : sp|Q9BV97|ZN747_HUMAN,1
+among : 162 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q8NEZ4|KMT2C_HUMAN is unanimously composed with the following components : sp|P29375|KDM5A_HUMAN,1
+among : 19 components found by Diffuse and : 4 components found by CompositeSearch
+###############################################
+The composite :sp|Q8IXT2|DMRTD_HUMAN is unanimously composed with the following components : sp|Q5HYR2|DMRTC_HUMAN,sp|Q9NQL9|DMRT3_HUMAN,sp|Q96SC8|DMTA2_HUMAN,sp|Q9Y5R6|DMRT1_HUMAN,sp|Q9Y5R5|DMRT2_HUMAN,5
+among : 6 components found by Diffuse and : 6 components found by CompositeSearch
+###############################################
+The composite :sp|P23497|SP100_HUMAN is unanimously composed with the following components : 0
+among : 2 components found by Diffuse and : 5 components found by CompositeSearch
+###############################################
+The composite :sp|P22891|PROZ_HUMAN is unanimously composed with the following components : sp|Q8TER0|SNED1_HUMAN,1
+among : 6 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q5VT25|MRCKA_HUMAN is unanimously composed with the following components : sp|Q09013|DMPK_HUMAN,sp|Q9H521|YM006_HUMAN,2
+among : 110 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|P00747|PLMN_HUMAN is unanimously composed with the following components : sp|Q02325|PLGB_HUMAN,1
+among : 51 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|Q7RTP6|MICA3_HUMAN is unanimously composed with the following components : sp|Q9UHB6|LIMA1_HUMAN,sp|Q6ZW33|MICLK_HUMAN,sp|O94851|MICA2_HUMAN,3
+among : 22 components found by Diffuse and : 4 components found by CompositeSearch
+###############################################
+The composite :sp|Q5VTM2|AGAP9_HUMAN is unanimously composed with the following components : sp|Q14692|BMS1_HUMAN,1
+among : 11 components found by Diffuse and : 5 components found by CompositeSearch
+###############################################
+The composite :sp|Q12830|BPTF_HUMAN is unanimously composed with the following components : sp|Q92830|KAT2A_HUMAN,sp|Q96BD5|PF21A_HUMAN,2
+among : 11 components found by Diffuse and : 4 components found by CompositeSearch
+###############################################
+The composite :sp|B2RXF5|ZBT42_HUMAN is unanimously composed with the following components : sp|Q9H5J0|ZBTB3_HUMAN,1
+among : 127 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|O43151|TET3_HUMAN is unanimously composed with the following components : sp|Q6N021|TET2_HUMAN,1
+among : 2 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q53GI3|ZN394_HUMAN is unanimously composed with the following components : sp|Q9GZW5|SCND2_HUMAN,sp|Q6R2W3|SCND3_HUMAN,sp|Q9NWS9|ZN446_HUMAN,sp|Q8TBC5|ZSC18_HUMAN,sp|B2RXF5|ZBT42_HUMAN,sp|P57086|SCND1_HUMAN,sp|Q96JS3|PGBD1_HUMAN,sp|Q99592|ZBT18_HUMAN,8
+among : 175 components found by Diffuse and : 12 components found by CompositeSearch
+###############################################
+The composite :sp|Q92794|KAT6A_HUMAN is unanimously composed with the following components : sp|O95251|KAT7_HUMAN,1
+among : 6 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|Q9NPC7|MYNN_HUMAN is unanimously composed with the following components : 0
+among : 186 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q9NSY1|BMP2K_HUMAN is unanimously composed with the following components : sp|Q5H9B9|BM2KL_HUMAN,1
+among : 39 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|O15535|ZSC9_HUMAN is unanimously composed with the following components : sp|Q6R2W3|SCND3_HUMAN,sp|Q9GZW5|SCND2_HUMAN,sp|Q8TBC5|ZSC18_HUMAN,sp|P57086|SCND1_HUMAN,sp|Q96JS3|PGBD1_HUMAN,5
+among : 161 components found by Diffuse and : 8 components found by CompositeSearch
+###############################################
+The composite :sp|Q08AG5|ZN844_HUMAN is unanimously composed with the following components : sp|O60384|ZN861_HUMAN,sp|Q6ZQV5|ZN788_HUMAN,2
+among : 141 components found by Diffuse and : 4 components found by CompositeSearch
+###############################################
+The composite :sp|B1APH4|ZN487_HUMAN is unanimously composed with the following components : 0
+among : 119 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q8WTZ3|YS049_HUMAN is unanimously composed with the following components : sp|Q68CZ1|FTM_HUMAN,sp|Q63HK3|ZKSC2_HUMAN,sp|P17040|ZSC20_HUMAN,sp|Q9NV72|ZN701_HUMAN,4
+among : 36 components found by Diffuse and : 27 components found by CompositeSearch
+###############################################
+The composite :sp|Q8NFU7|TET1_HUMAN is unanimously composed with the following components : sp|Q6N021|TET2_HUMAN,sp|Q7LFL8|CXXC5_HUMAN,2
+among : 2 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|O14715|RGPD8_HUMAN is unanimously composed with the following components : sp|P49792|RBP2_HUMAN,1
+among : 2 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|O14686|KMT2D_HUMAN is unanimously composed with the following components : sp|P29375|KDM5A_HUMAN,1
+among : 19 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|O00478|BT3A3_HUMAN is unanimously composed with the following components : sp|Q9HCM9|TRI39_HUMAN,1
+among : 32 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|P31629|ZEP2_HUMAN is unanimously composed with the following components : sp|Q5T1R4|ZEP3_HUMAN,sp|Q96H86|ZN764_HUMAN,2
+among : 3 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|P54278|PMS2_HUMAN is unanimously composed with the following components : sp|Q13670|PM2PB_HUMAN,sp|A4D2B8|PM2P1_HUMAN,sp|A8MQ11|PM2P5_HUMAN,sp|Q68D20|PMS2L_HUMAN,4
+among : 7 components found by Diffuse and : 6 components found by CompositeSearch
+###############################################
+The composite :sp|P23759|PAX7_HUMAN is unanimously composed with the following components : sp|Q96QS3|ARX_HUMAN,sp|P15863|PAX1_HUMAN,2
+among : 19 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|O60304|ZN500_HUMAN is unanimously composed with the following components : sp|Q9GZW5|SCND2_HUMAN,sp|Q13118|KLF10_HUMAN,sp|Q9NWS9|ZN446_HUMAN,sp|Q96IT1|ZN496_HUMAN,sp|Q8TBC5|ZSC18_HUMAN,sp|P57086|SCND1_HUMAN,sp|Q96JS3|PGBD1_HUMAN,7
+among : 180 components found by Diffuse and : 11 components found by CompositeSearch
+###############################################
+The composite :sp|Q8TAW3|ZN671_HUMAN is unanimously composed with the following components : sp|Q7RTV3|ZN367_HUMAN,sp|O60290|ZN862_HUMAN,2
+among : 164 components found by Diffuse and : 5 components found by CompositeSearch
+###############################################
+The composite :sp|Q9Y2L8|ZKSC5_HUMAN is unanimously composed with the following components : sp|Q6R2W3|SCND3_HUMAN,sp|Q9GZW5|SCND2_HUMAN,sp|P57086|SCND1_HUMAN,sp|Q15697|ZN174_HUMAN,4
+among : 180 components found by Diffuse and : 5 components found by CompositeSearch
+###############################################
+The composite :sp|A4D2B8|PM2P1_HUMAN is unanimously composed with the following components : sp|Q13670|PM2PB_HUMAN,sp|A8MQ11|PM2P5_HUMAN,2
+among : 2 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|P56730|NETR_HUMAN is unanimously composed with the following components : sp|Q08380|LG3BP_HUMAN,sp|P21757|MSRE_HUMAN,sp|Q96JK4|HIPL1_HUMAN,sp|Q6ZMJ2|SCAR5_HUMAN,4
+among : 12 components found by Diffuse and : 4 components found by CompositeSearch
+###############################################
+The composite :sp|O94851|MICA2_HUMAN is unanimously composed with the following components : 0
+among : 18 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|P63128|POK9_HUMAN is unanimously composed with the following components : sp|P63121|VP113_HUMAN,1
+among : 2 components found by Diffuse and : 30 components found by CompositeSearch
+###############################################
+The composite :sp|Q9UGM3|DMBT1_HUMAN is unanimously composed with the following components : sp|Q08380|LG3BP_HUMAN,sp|Q96JK4|HIPL1_HUMAN,sp|Q6ZMJ2|SCAR5_HUMAN,3
+among : 30 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|Q9UDV7|ZN282_HUMAN is unanimously composed with the following components : sp|Q6ZMS7|ZN783_HUMAN,sp|Q9UDV6|ZN212_HUMAN,sp|Q75MW2|ZN767_HUMAN,sp|Q6NUN9|ZN746_HUMAN,4
+among : 190 components found by Diffuse and : 6 components found by CompositeSearch
+###############################################
+The composite :sp|P49910|ZN165_HUMAN is unanimously composed with the following components : sp|Q6R2W3|SCND3_HUMAN,sp|O43474|KLF4_HUMAN,sp|Q96IT1|ZN496_HUMAN,sp|Q8TBC5|ZSC18_HUMAN,sp|P57086|SCND1_HUMAN,sp|Q96JS3|PGBD1_HUMAN,6
+among : 173 components found by Diffuse and : 9 components found by CompositeSearch
+###############################################
+The composite :sp|P26367|PAX6_HUMAN is unanimously composed with the following components : sp|P15863|PAX1_HUMAN,1
+among : 20 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|Q9HBL0|TENS1_HUMAN is unanimously composed with the following components : sp|Q8IZW8|TENS4_HUMAN,1
+among : 4 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|P08603|CFAH_HUMAN is unanimously composed with the following components : 0
+among : 1 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q9GZU2|PEG3_HUMAN is unanimously composed with the following components : sp|Q6R2W3|SCND3_HUMAN,sp|Q9NZV7|ZIM2_HUMAN,sp|Q96JS3|PGBD1_HUMAN,3
+among : 53 components found by Diffuse and : 9 components found by CompositeSearch
+###############################################
+The composite :sp|Q8TER0|SNED1_HUMAN is unanimously composed with the following components : sp|O75443|TECTA_HUMAN,sp|P22891|PROZ_HUMAN,2
+among : 36 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q9ULD5|ZN777_HUMAN is unanimously composed with the following components : sp|Q75MW2|ZN767_HUMAN,sp|Q6ZMS7|ZN783_HUMAN,sp|O60290|ZN862_HUMAN,3
+among : 190 components found by Diffuse and : 5 components found by CompositeSearch
+###############################################
+The composite :sp|P17040|ZSC20_HUMAN is unanimously composed with the following components : sp|Q8NBB4|ZSCA1_HUMAN,sp|Q9GZW5|SCND2_HUMAN,sp|Q15697|ZN174_HUMAN,sp|Q96IT1|ZN496_HUMAN,sp|Q8TBC5|ZSC18_HUMAN,sp|Q5EBM4|ZN542_HUMAN,sp|P57086|SCND1_HUMAN,sp|Q6ZT77|ZN826_HUMAN,sp|Q8WTZ3|YS049_HUMAN,9
+among : 189 components found by Diffuse and : 15 components found by CompositeSearch
+###############################################
+The composite :sp|Q4UJ75|A20A4_HUMAN is unanimously composed with the following components : sp|Q8NF67|A2012_HUMAN,1
+among : 37 components found by Diffuse and : 9 components found by CompositeSearch
+###############################################
+The composite :sp|P14780|MMP9_HUMAN is unanimously composed with the following components : sp|P22897|MRC1_HUMAN,sp|Q9UBV2|SE1L1_HUMAN,2
+among : 11 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q3C1V9|YK041_HUMAN is unanimously composed with the following components : sp|A6NHS1|YK042_HUMAN,sp|A6NCL7|AN33B_HUMAN,sp|Q04609|FOLH1_HUMAN,3
+among : 3 components found by Diffuse and : 4 components found by CompositeSearch
+###############################################
+The composite :sp|A6NFI3|ZN316_HUMAN is unanimously composed with the following components : sp|Q05215|EGR4_HUMAN,sp|P0CG23|ZN853_HUMAN,sp|Q02447|SP3_HUMAN,sp|Q02446|SP4_HUMAN,sp|O14901|KLF11_HUMAN,sp|Q6BEB4|SP5_HUMAN,sp|P51815|ZN75D_HUMAN,sp|Q6ZMS7|ZN783_HUMAN,sp|Q5JUW0|KRBX4_HUMAN,sp|Q13887|KLF5_HUMAN,10
+among : 178 components found by Diffuse and : 24 components found by CompositeSearch
+###############################################
+The composite :sp|O95125|ZN202_HUMAN is unanimously composed with the following components : sp|Q8NBB4|ZSCA1_HUMAN,sp|Q9GZW5|SCND2_HUMAN,sp|Q6R2W3|SCND3_HUMAN,sp|Q6BEB4|SP5_HUMAN,sp|P57086|SCND1_HUMAN,5
+among : 171 components found by Diffuse and : 8 components found by CompositeSearch
+###############################################
+The composite :sp|Q9BXX3|AN30A_HUMAN is unanimously composed with the following components : sp|Q96IX9|A26L1_HUMAN,1
+among : 41 components found by Diffuse and : 4 components found by CompositeSearch
+###############################################
+The composite :sp|Q6NSZ9|ZSC25_HUMAN is unanimously composed with the following components : sp|Q8NBB4|ZSCA1_HUMAN,sp|Q6R2W3|SCND3_HUMAN,sp|Q86TJ5|ZN554_HUMAN,sp|Q8TBC5|ZSC18_HUMAN,sp|P57086|SCND1_HUMAN,5
+among : 178 components found by Diffuse and : 8 components found by CompositeSearch
+###############################################
+The composite :sp|Q96HC4|PDLI5_HUMAN is unanimously composed with the following components : sp|P50479|PDLI4_HUMAN,sp|Q53GG5|PDLI3_HUMAN,2
+among : 16 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|P11532|DMD_HUMAN is unanimously composed with the following components : sp|O15020|SPTN2_HUMAN,sp|Q13474|DRP2_HUMAN,2
+among : 21 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q5TYW1|ZN658_HUMAN is unanimously composed with the following components : sp|Q9NQV7|PRDM9_HUMAN,sp|P0CG23|ZN853_HUMAN,sp|Q53GI3|ZN394_HUMAN,sp|O14978|ZN263_HUMAN,sp|O15535|ZSC9_HUMAN,sp|P49910|ZN165_HUMAN,sp|O60290|ZN862_HUMAN,sp|Q5EBM4|ZN542_HUMAN,sp|Q6ZT77|ZN826_HUMAN,sp|P98182|ZN200_HUMAN,sp|Q8N143|BCL6B_HUMAN,sp|P17040|ZSC20_HUMAN,sp|P17022|ZNF18_HUMAN,sp|O60304|ZN500_HUMAN,sp|Q8N8C0|ZN781_HUMAN,15
+among : 180 components found by Diffuse and : 66 components found by CompositeSearch
+###############################################
+The composite :sp|Q9HAH1|ZN556_HUMAN is unanimously composed with the following components : 0
+among : 13 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|Q15697|ZN174_HUMAN is unanimously composed with the following components : sp|Q9GZW5|SCND2_HUMAN,sp|Q6R2W3|SCND3_HUMAN,sp|Q9NWS9|ZN446_HUMAN,sp|P57086|SCND1_HUMAN,sp|Q96JS3|PGBD1_HUMAN,5
+among : 157 components found by Diffuse and : 12 components found by CompositeSearch
+###############################################
+The composite :sp|Q96BV0|ZN775_HUMAN is unanimously composed with the following components : sp|P57682|KLF3_HUMAN,sp|P08047|SP1_HUMAN,sp|Q13351|KLF1_HUMAN,sp|Q02446|SP4_HUMAN,sp|O43474|KLF4_HUMAN,sp|Q6BEB4|SP5_HUMAN,sp|Q8IXZ3|SP8_HUMAN,sp|Q02447|SP3_HUMAN,sp|Q8TD94|KLF14_HUMAN,9
+among : 69 components found by Diffuse and : 16 components found by CompositeSearch
+###############################################
+The composite :sp|Q5EBL2|ZN628_HUMAN is unanimously composed with the following components : sp|P57682|KLF3_HUMAN,1
+among : 66 components found by Diffuse and : 20 components found by CompositeSearch
+###############################################
+The composite :sp|Q6ZN55|ZN574_HUMAN is unanimously composed with the following components : 0
+among : 39 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q9C0K0|BC11B_HUMAN is unanimously composed with the following components : sp|O15090|ZN536_HUMAN,1
+among : 7 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|P63135|POK7_HUMAN is unanimously composed with the following components : sp|P63128|POK9_HUMAN,1
+among : 3 components found by Diffuse and : 13 components found by CompositeSearch
+###############################################
+The composite :sp|Q8NHM5|KDM2B_HUMAN is unanimously composed with the following components : sp|Q6PCT2|FXL19_HUMAN,1
+among : 2 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q86TJ5|ZN554_HUMAN is unanimously composed with the following components : sp|Q8NE65|ZN738_HUMAN,sp|Q6ZQV5|ZN788_HUMAN,sp|O43298|ZBT43_HUMAN,3
+among : 170 components found by Diffuse and : 7 components found by CompositeSearch
+###############################################
+The composite :sp|O14594|NCAN_HUMAN is unanimously composed with the following components : sp|P16112|PGCA_HUMAN,1
+among : 33 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q6W2J9|BCOR_HUMAN is unanimously composed with the following components : sp|Q8N888|BCOR2_HUMAN,sp|Q5H9F3|BCORL_HUMAN,2
+among : 14 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q6ZNG0|ZN620_HUMAN is unanimously composed with the following components : sp|P0CG23|ZN853_HUMAN,sp|Q8N8C0|ZN781_HUMAN,2
+among : 157 components found by Diffuse and : 7 components found by CompositeSearch
+###############################################
+The composite :sp|A2A2Z9|AN18B_HUMAN is unanimously composed with the following components : sp|Q8NF67|A2012_HUMAN,1
+among : 35 components found by Diffuse and : 9 components found by CompositeSearch
+###############################################
+The composite :sp|Q6PJE2|POZP3_HUMAN is unanimously composed with the following components : sp|Q96HA1|P121A_HUMAN,sp|P21754|ZP3_HUMAN,2
+among : 2 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|Q9UBV2|SE1L1_HUMAN is unanimously composed with the following components : sp|Q9UBG0|MRC2_HUMAN,sp|P14780|MMP9_HUMAN,sp|Q13018|PLA2R_HUMAN,sp|P02751|FINC_HUMAN,4
+among : 6 components found by Diffuse and : 5 components found by CompositeSearch
+###############################################
+The composite :sp|Q6ZMS7|ZN783_HUMAN is unanimously composed with the following components : sp|Q75MW2|ZN767_HUMAN,1
+among : 5 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|P51815|ZN75D_HUMAN is unanimously composed with the following components : sp|Q8NBB4|ZSCA1_HUMAN,sp|Q8TBC5|ZSC18_HUMAN,sp|P57086|SCND1_HUMAN,sp|Q6ZT77|ZN826_HUMAN,4
+among : 178 components found by Diffuse and : 9 components found by CompositeSearch
+###############################################
+The composite :sp|Q9BWE0|REPI1_HUMAN is unanimously composed with the following components : 0
+among : 27 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|P02751|FINC_HUMAN is unanimously composed with the following components : sp|Q9UBV2|SE1L1_HUMAN,sp|Q9UBG0|MRC2_HUMAN,sp|Q13018|PLA2R_HUMAN,3
+among : 25 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|Q6R2W3|SCND3_HUMAN is unanimously composed with the following components : sp|Q15697|ZN174_HUMAN,sp|Q9UL58|ZN215_HUMAN,sp|Q9GZW5|SCND2_HUMAN,sp|Q9Y2L8|ZKSC5_HUMAN,sp|Q96IT1|ZN496_HUMAN,sp|Q8N0Y2|ZN444_HUMAN,sp|Q9NWS9|ZN446_HUMAN,sp|P49910|ZN165_HUMAN,sp|Q96GC6|ZN274_HUMAN,sp|Q8TBC5|ZSC18_HUMAN,sp|P57086|SCND1_HUMAN,sp|Q6ZNG9|KRBA2_HUMAN,sp|Q9GZU2|PEG3_HUMAN,sp|P17022|ZNF18_HUMAN,sp|Q8NBB4|ZSCA1_HUMAN,sp|Q53GI3|ZN394_HUMAN,sp|O14978|ZN263_HUMAN,sp|O95125|ZN202_HUMAN,sp|O15535|ZSC9_HUMAN,sp|Q6NSZ9|ZSC25_HUMAN,20
+among : 31 components found by Diffuse and : 45 components found by CompositeSearch
+###############################################
+The composite :sp|O43298|ZBT43_HUMAN is unanimously composed with the following components : 0
+among : 75 components found by Diffuse and : 3 components found by CompositeSearch
+###############################################
+The composite :sp|A6QL64|AN36A_HUMAN is unanimously composed with the following components : 0
+among : 31 components found by Diffuse and : 2 components found by CompositeSearch
+###############################################
+The composite :sp|Q96JS3|PGBD1_HUMAN is unanimously composed with the following components : sp|Q9GZW5|SCND2_HUMAN,sp|Q53GI3|ZN394_HUMAN,sp|Q8N0Y2|ZN444_HUMAN,sp|Q9NWS9|ZN446_HUMAN,sp|O15535|ZSC9_HUMAN,sp|P49910|ZN165_HUMAN,sp|Q96GC6|ZN274_HUMAN,sp|Q15697|ZN174_HUMAN,sp|Q8TBC5|ZSC18_HUMAN,sp|Q9GZU2|PEG3_HUMAN,sp|Q9UL58|ZN215_HUMAN,sp|P17022|ZNF18_HUMAN,sp|O60304|ZN500_HUMAN,13
+among : 26 components found by Diffuse and : 31 components found by CompositeSearch
+###############################################
+The composite :sp|Q9UHF7|TRPS1_HUMAN is unanimously composed with the following components : sp|Q92908|GATA6_HUMAN,1
+among : 5 components found by Diffuse and : 4 components found by CompositeSearch

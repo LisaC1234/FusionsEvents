@@ -1,5 +1,7 @@
 #! /usr/bin/env python3
 # coding: utf-8
+# Author : Lisa Chabrier
+
 
 # Import pandas package  
 import pandas
@@ -14,7 +16,9 @@ colors = ['#C481A7', '#EDE342', '#F2BF6C', '#FB76C1', '#FF51EB', '#58EFEC', '#7C
 symbols = ['circle', 'square', 'star']
 
 
-colors = {1:'#646E78', '1':'#646E78', 2:'#40C9A7', '2':'#40C9A7', '2l':'#40C9A7', 3:'#84DCC6', '3':'#84DCC6', 4:'#A5FFD6', '4':'#A5FFD6', 5:'#D33F49', '5':'#D33F49', 6:'#FF686B', '6':'#FF686B', 7:'#FFA69E', '7':'#FFA69E', 8:'#FFA970', '8':'#FFA970', 9:'#C481A7', '9':'#C481A7', 10:'#EDE342', '10':'#EDE342', 11:'#F2BF6C', '11':'#F2BF6C', 12:'#FB76C1', '12':'#FB76C1', 13:'#FF51EB', '13':'#FF51EB', 14:'#58EFEC', '14':'#58EFEC', 15:'#7CCAD5', '15':'#7CCAD5', 16:'#A0A6BE', '16':'#A0A6BE', 17:'#E85C90', '17':'#E85C90', 18:'#4ECDC4', '18':'#4ECDC4', 19:'#FF6B6B', '19':'#FF6B6B', 20:'#FFE66D', '20':'#FFE66D', 21:'#FF9F1C', '21':'#FF9F1C', 22:'#06D6A0', '22':'#06D6A0', 'x':'#83E377', 'y':'#16DB93', -1:'#2EC4B6', '-1':'#2EC4B6', 'unplaced':'#2EC4B6'}
+colors = {1:'#646E78', '1':'#646E78', 2:'#40C9A7', '2':'#40C9A7', '2l':'#40C9A7', 3:'#84DCC6', '3':'#84DCC6', 4:'#A5FFD6', '4':'#A5FFD6', 5:'#D33F49', '5':'#D33F49', 6:'#FF686B', '6':'#FF686B', 7:'#FFA69E', '7':'#FFA69E', 8:'#FFA970', '8':'#FFA970', 9:'#C481A7', '9':'#C481A7', 10:'#EDE342', '10':'#EDE342', 11:'#F2BF6C', '11':'#F2BF6C', 12:'#FB76C1', '12':'#FB76C1', 13:'#FF51EB', '13':'#FF51EB', 14:'#58EFEC', '14':'#58EFEC', 15:'#7CCAD5', '15':'#7CCAD5', 16:'#A0A6BE', '16':'#A0A6BE', 17:'#E85C90', '17':'#E85C90', 18:'#4ECDC4', '18':'#4ECDC4', 19:'#FF6B6B', '19':'#FF6B6B', 20:'#FFE66D', '20':'#FFE66D', 21:'#FF9F1C', '21':'#FF9F1C', 22:'#06D6A0', '22':'#06D6A0', 'x':'#83E377', 'y':'#16DB93', -1:'#2EC4B6', '-1':'#2EC4B6', 'unplaced':'#2EC4B6',
+
+ 'chrom1':'#646E78', 'chrom2':'#40C9A7', 'chrom3':'#84DCC6', 'chrom4':'#A5FFD6', 'chrom5':'#D33F49', 'chrom6':'#FF686B', 'chrom7':'#FFA69E', 'chrom8':'#FFA970', 'chrom9':'#C481A7', 'chrom10':'#EDE342', 'chrom11':'#F2BF6C', 'chrom12':'#FB76C1', 'chrom13':'#FF51EB', 'chrom14':'#58EFEC', 'chrom15':'#7CCAD5', 'chrom16':'#A0A6BE', 'chrom17':'#E85C90', 'chrom18':'#4ECDC4', 'chrom19':'#FF6B6B', 'chrom20':'#FFE66D', 'chrom21':'#FF9F1C', 'chrom22':'#06D6A0', 'chromX':'#83E377', 'chromY':'#16DB93'}
 ####################################################
 #        Building the nx graph 
 ####################################################
@@ -25,7 +29,10 @@ def create_graph(comp,target):
 		reduced_comp = comp.loc[comp["ch_composite"] == str(target)]# only the edges involving target chromosome
 		with open(r'target_composite.txt', 'w') as targ_file:
 			for n in set(reduced_comp["composite"]):
-				targ_file.write(n.split('|')[1] + '\n')
+				if '|' in n:
+					targ_file.write(n.split('|')[1] + '\n')
+				else :
+					targ_file.write(n + '\n')
 	G = nx.Graph()
 	
 	dico_status = {}
@@ -129,23 +136,32 @@ def print_network(comp,target):
 	for node in G.nodes():
 		x, y = G.nodes[node]['pos']
 		if G.nodes[node]['ch'] not in colors:
-			print('In order to print the graph correctly, you need to add a color for ', G.nodes[node]['ch'], type(G.nodes[node]['ch']), '. To achieve this, you can add manually an entry to the dictionary "color" in the file "printChromosome"')
+			raise ValueError('In order to print the graph correctly, you need to add a color for ', G.nodes[node]['ch'], type(G.nodes[node]['ch']), '. To achieve this, you can add manually an entry to the dictionary "color" in the file "printChromosome"')
 		if "component" in G.nodes[node]['status'] and "composite" in G.nodes[node]['status']:
 			list_both_x.append(x)
 			list_both_y.append(y)
-			text_both.append(node.split('|')[1] + ' from ch ' + G.nodes[node]['ch'])
+			if '|' in node :
+				text_both.append(node.split('|')[1] + ' from ch ' + G.nodes[node]['ch'])
+			else :
+				text_both.append(node + ' from ch ' + G.nodes[node]['ch'])
 			#color_both.append(colors[translate(G.nodes[node]['ch'])])
 			color_both.append(colors[G.nodes[node]['ch']])
 		elif "composite" in G.nodes[node]['status']:
 			list_composite_x.append(x)
 			list_composite_y.append(y)
-			text_composite.append(node.split('|')[1] + ' from ch ' + G.nodes[node]['ch'])
+			if '|' in node :
+				text_composite.append(node.split('|')[1] + ' from ch ' + G.nodes[node]['ch'])
+			else :
+				text_composite.append(node + ' from ch ' + G.nodes[node]['ch'])
 			#color_composite.append(colors[translate(G.nodes[node]['ch'])])
 			color_composite.append(colors[G.nodes[node]['ch']])
 		elif "component" in G.nodes[node]['status']:
 			list_component_x.append(x)
 			list_component_y.append(y)
-			text_component.append(node.split('|')[1] + ' from ch ' + G.nodes[node]['ch'])
+			if '|' in node :
+				text_component.append(node.split('|')[1] + ' from ch ' + G.nodes[node]['ch'])
+			else :
+				text_component.append(node + ' from ch ' + G.nodes[node]['ch'])
 			#color_component.append(colors[translate(G.nodes[node]['ch'])])
 			color_component.append(colors[G.nodes[node]['ch']])
 			
@@ -202,8 +218,8 @@ def print_network(comp,target):
 	
 	
 def main():
-	target = 1
-	reduced_comp = pandas.read_csv('reduced.csv')
+	target = 'chrom11'# or a number
+	reduced_comp = pandas.read_csv('~/FusionsEvents/Result/Diffuse_results/homo2homo_graph.csv')
 	print_network(reduced_comp, target)
 	
 if __name__ == "__main__":

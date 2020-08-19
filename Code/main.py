@@ -54,6 +54,47 @@ def main():
 ########Using a Diffuse input	
 	reading_CompositeSearch = False ### memorise if the CompositeSearch files have already been read. 
 	######## Extract the diffuse result ########
+	
+	########################################################################################################"
+	
+	if args.d and args.ch:
+		print('Diffuse and Composite Search with ch')
+		organism = path_input.split('/')[-1]
+		path_diffuse = args.d
+		diffuse = readDiffuse.reader(path_diffuse) #return a pandas object
+	
+	###### Apply CompositeSearch ###############
+		g=[]
+		if args.g_option :
+			g = list(set(diffuse["composite"]))
+		print(g)
+		file = args.algo(path_input, g, core) #apply compositeSearch, either with the blast alignment or with a fasta file
+		compositeSearch = readCompositeSearch.reader(file)
+		reading_ComopsiteSearch = True
+		print("CompositeSearch OK")
+		
+		arg_path = args.ch
+		list_repertories, path_blast = args.algo_ch(arg_path, [], core) #list_repertories is a list of the location of the result files
+		compositeSearch = readCompositeSearch.enrich_blast(compositeSearch, path_blast)
+		print("CompositeSearch enriched")
+		diffuse_enriched = readCompositeSearch.enrich_blast(diffuse, path_blast)
+		print("Diffuse enriched")
+
+		list_ch = readCompositeSearch.multiple_reader(list_repertories) # list_ch is a list of pandas matrix for each chromosome
+
+		print("Every chromosomes are analysed")
+		if args.target:
+			target_ch = args.target
+			print("Printing CompositeSearch")
+			printChromosome.print_network(compositeSearch,target_ch)
+			print("Printind Diffuse")
+			printChromosome.print_network(diffuse_enriched,target_ch)
+
+	
+	
+	
+	
+	###########################################################################################################"""
 	if args.d:
 		print('The results of CompositeSearch and Diffuse will be compaired. ')
 		organism = path_input.split('/')[-1]
