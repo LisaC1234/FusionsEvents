@@ -43,7 +43,6 @@ def reader(path): #to the repertory with all the CompositeSearch results files
 					num = line.strip()[2:]
 					composite = dico[num]
 				elif line.startswith('F'):
-					print(domain)
 					infos = line.strip().split('\t')
 					temp = [dico[infos[1]], composite, int(infos[2]), int(infos[3]), infos[0], domain]
 					temp = temp + composites_infos[num]
@@ -51,7 +50,6 @@ def reader(path): #to the repertory with all the CompositeSearch results files
 					ind +=1
 				elif line.startswith('['):
 					domain = int(line.strip().split('\t')[0][-2:-1])
-					print('\n\n',domain)
 	
 	return res
 

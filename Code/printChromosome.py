@@ -92,7 +92,7 @@ def assign_pos(graph):
 #       building and printing the graph
 ####################################################
 
-def print_network(comp,target):
+def print_network(comp,target, algo):
 	G = create_graph(comp,target)
 	edge_x = []
 	edge_y = []
@@ -199,7 +199,7 @@ def print_network(comp,target):
 	
 	fig = go.Figure(data=trace_record,
 			 layout=go.Layout(
-				title='<br>Composites from the chromosome ' + str(target) +' <br>',
+				title='<br>' + algo + '\nComposites from the chromosome ' + str(target) +' <br>',
 				titlefont_size=25,
 				showlegend=True,
 				hovermode='closest',
@@ -220,7 +220,7 @@ def print_network(comp,target):
 def main():
 	target = 'chrom11'# or a number
 	reduced_comp = pandas.read_csv('~/FusionsEvents/Result/Diffuse_results/homo2homo_graph.csv')
-	print_network(reduced_comp, target)
+	print_network(reduced_comp, target, 'Manual Entry')
 	
 if __name__ == "__main__":
 	main()
