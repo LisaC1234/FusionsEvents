@@ -10,6 +10,7 @@ import readCompositeSearch
 import analyse
 import printChromosome
 import gProfiler
+import linkerRegion
 
 ####################################################
 #              Parse Arguments
@@ -39,6 +40,8 @@ def parse_arguments():
 	parser.add_argument("--fasta_ch", dest='algo_ch', action='store_const', const=applyCompositeSearch.ch_fasta, default=applyCompositeSearch.ch_blast,help="""To use only if the blast alignments are not available. Repository database should be a fasta database.""") # define an optional option, therefore algo is to use to run CompositeSearch on the input
 	
 	parser.add_argument("--target", metavar="[Name of the Chromosome to print]",help="""You can choose a particular Chromosome to print, or use "all".""" )
+	
+	parser.add_argument("--linker", metavar="[linker Region analysis]",help="""The parameter should be the fasta file associated. The frequence of each amino acid in the linker regions will be computed.""" )
 	return parser.parse_args()
 	
 	
@@ -123,6 +126,12 @@ def main():
 	if reading_Diffuse :
 		diffuse.to_csv(organism + '_diffuse_result.csv')
 		
+	if args.linker:
+		print('The linker regions will be analysed')
+		fasta = args.linker
+		linkerRegion.compute_linkerRegion(compositeSearch,fasta)
+		#if args.diffuse: ## Is it ok ? 
+		#	linkerRegion.compute_linkerRegion(diffuse,fasta)
 	end = time.time()
 	print('\nThe execution took : ' , str(end-begin), ' seconds')
 if __name__ == "__main__":

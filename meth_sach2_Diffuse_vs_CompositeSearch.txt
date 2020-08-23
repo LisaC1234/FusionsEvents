@@ -1,0 +1,5 @@
+Diffuse         found 25 different composites.
+CompositeSearch found 136 different composites.
+Among them,           0 are in both results composites list.
+
+

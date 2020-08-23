@@ -6,23 +6,18 @@ from subprocess import Popen, PIPE, check_output
 aa = ['T', 'H', 'E', 'Y', 'Q', 'G', 'C', 'V', 'W', 'L', 'N', 'F', 'R', 'K', 'I', 'M', 'D', 'S', 'A', 'P']
 
 def extract_linker(composite, comp_linker, fasta_path):
-	#print('\n\n\n\n\n')
 	res = []
 	cmd = ["grep", composite, "-A30", fasta_path]
 	p = Popen(cmd, stdout=PIPE, stderr=PIPE)
 	stdout, stderr = p.communicate()
 	out = str(stdout).strip('b').strip("'").strip('n').strip('\\').strip('>')
 	list_out = out.split('n')
-	#print(list_out)
 	sequence = ''
 	for string in list_out[1:]:
 		if string.startswith('>'):
-	#		print('\n###############################################\n')
 			break
 		sequence = sequence + string.strip('\\')
-	#print(composite, '\n', sequence)
 	#sequence contains the sequence of the composite
-	#print(comp_linker)
 	for i in range(1,len(comp_linker)):
 
 		start_linker = comp_linker[i-1][1]
@@ -49,7 +44,6 @@ def linkerRegion(data, fasta_path):
 			end = min(sub_sub["composite_end"])
 			comp_linker.append((begin, end))
 		res = res + extract_linker(composite, comp_linker, fasta_path)
-	#print(res)
 	return res
 		
 		
@@ -68,9 +62,11 @@ def average_aa(list_linker):
 				profile.append(somme/n)
 			res.loc[ind] = profile
 			ind +=1
-	print(res)
 	res.to_csv('profile.csv')
 	return res	
+	
+def compute_linkerRegion(data, fasta_file):
+	return average_aa(linkerRegion(data, fasta_file))
 
 def main():
 	data = pandas.read_csv("mouse_reviewedcompositeSearch_result.csv")
