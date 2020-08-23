@@ -23,6 +23,8 @@ $python3 Code/main.py -h
 --target : If information about the chromosome is given, the targetted chromosome will be displayed ('all' will display the whole network)
 --gProfiler : should be the organisme to use for the g:Profiler analysis. (help at https://biit.cs.ut.ee/gprofiler/page/organism-list)
 ```
+## To change the parameters for CompositeSearch : 
+The parameters are in the header of the "Code/applyCompositeSearch.py" file, it is therefore easy to change them. Change them carefully, because the output file will be replaced, and it is not possible to know afterward the parameters that were used in a particular computation. 
 
 ## Exemple : 
 ```diff
