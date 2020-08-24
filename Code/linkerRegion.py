@@ -24,14 +24,13 @@ def extract_linker(composite, comp_linker, fasta_path):
 		end_linker = comp_linker[i][0]
 		size = abs(comp_linker[i-1][1] - comp_linker[i][0])
 		if size > 10 and size < 200 :
-			res.append(sequence[start_linker:end_linker]) ##TODO : vérifier que les indices sont les bons, sinon mettre des +1...
-	
+			res.append(sequence[start_linker:end_linker]) 
 	return res
 	
 	
 	
 def linkerRegion(data, fasta_path):
-	no_overlap = data.loc[data["no_overlap_score"] == 1]
+	no_overlap = data.loc[data["no_overlap_score"] == '1.00']
 	res = [] #list of all the linker_regions
 
 	for composite in set(no_overlap["composite"]):
@@ -47,7 +46,7 @@ def linkerRegion(data, fasta_path):
 	return res
 		
 		
-def average_aa(list_linker):
+def average_aa(list_linker, organism, output):
 	res = pandas.DataFrame(columns=aa)
 	ind = 0
 	for linker in list_linker :
@@ -62,15 +61,15 @@ def average_aa(list_linker):
 				profile.append(somme/n)
 			res.loc[ind] = profile
 			ind +=1
-	res.to_csv('profile.csv')
+	res.to_csv(output+'profile_linker_regions_' + organism + '.csv')
 	return res	
 	
-def compute_linkerRegion(data, fasta_file):
-	return average_aa(linkerRegion(data, fasta_file))
+def compute_linkerRegion(data, fasta_file, organism, output):
+	return average_aa(linkerRegion(data, fasta_file), organism, output)
 
 def main():
-	data = pandas.read_csv("mouse_reviewedcompositeSearch_result.csv")
-	average_aa(linkerRegion(data, "Data/fasta_databases/mouse_reviewed.fasta"))
+	data = pandas.read_csv("mouse_reviewedcompositeSearch_resutl.csv")
+	average_aa(linkerRegion(data, "Data/fasta_databases/mouse_reviewed.fasta"), 'mouse', '')
 
 if __name__ == "__main__":
 	main()

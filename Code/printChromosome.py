@@ -27,12 +27,12 @@ def create_graph(comp,target):
 		reduced_comp = comp
 	else :
 		reduced_comp = comp.loc[comp["ch_composite"] == str(target)]# only the edges involving target chromosome
-		with open(r'target_composite.txt', 'w') as targ_file:
-			for n in set(reduced_comp["composite"]):
-				if '|' in n:
-					targ_file.write(n.split('|')[1] + '\n')
-				else :
-					targ_file.write(n + '\n')
+		#with open(r'target_composite.txt', 'w') as targ_file:
+		#	for n in set(reduced_comp["composite"]):
+		#		if '|' in n:
+		#			targ_file.write(n.split('|')[1] + '\n')
+		#		else :
+		#			targ_file.write(n + '\n')
 	G = nx.Graph()
 	
 	dico_status = {}

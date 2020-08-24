@@ -28,10 +28,10 @@ The parameters are in the header of the "Code/applyCompositeSearch.py" file, it 
 
 ## Exemple : 
 ```diff
-$python3 Code/main.py -c 4 -i Data/Blast_Alignments/meth_sach2 --diffuse Result/Diffuse_results/meth_sach2_diffuse.txt --gOption
+$python3 Code/main.py -c 4 -i Data/Blast_Alignments/meth_sach2 --diffuse Data/Diffuse_results/meth_sach2_diffuse.txt --gOption
 ```
 ```diff
-$python3 Code/main.py -c 4 -i Data/Blast_Alignments/meth_sach2 --diffuse Result/Diffuse_results/meth_sach2_diffuse.txt --linker Data/fasta_databases/meth_sach2.fasta
+$python3 Code/main.py -c 4 -i Data/Blast_Alignments/meth_sach2 --diffuse Data/Diffuse_results/meth_sach2_diffuse.txt --linker Data/fasta_databases/meth_sach2.fasta
 ```
 ```diff
 $python3 Code/main.py -c 4 -i Data/Blast_Alignments/human_by_chromosome/chromosome_19 --gProfiler hsapiens

@@ -2,8 +2,8 @@
 # coding: utf-8
 import pandas
 
-def comparison(diff, comp, organism): 
-	with open(organism + '_Diffuse_vs_CompositeSearch.txt', 'w') as res :
+def comparison(diff, comp, organism, output): 
+	with open(output + organism + '_Diffuse_vs_CompositeSearch.txt', 'w') as res :
 		intersect_composites = set(comp["composite"]).intersection(set(diff["composite"]))
 		if intersect_composites == []:
 			res.write('none of the composites found by Diffuse are detectd by CompositeSearch')
@@ -32,12 +32,12 @@ def comparison(diff, comp, organism):
 
 
 		
-def by_chromosome(comp, list_ch, organism): # returns a non ordered recap (latex table) of all the chromosomes, compairing the one_by_one and the all_vs_all use of CompositeSearch. 
+def by_chromosome(comp, list_ch, organism, output): # returns a non ordered recap (latex table) of all the chromosomes, compairing the one_by_one and the all_vs_all use of CompositeSearch. 
 	vert = '\\textcolor{vert}{\\textbf{'
 	orange = '\\textcolor{orange}{\\textbf{'
 	rose = '\\textcolor{rose}{\\textbf{'
 	fin = '}} '
-	output_path = "Result/Latex_files/" + organism +".tex"
+	output_path = output + organism +".tex"
 	already_analysed = []
 	with open(output_path, "w") as res:
 		res.write("\\begin{table}[H]\n\t\\centering\n\t\\begin{tabular}{||l|c|c|c|c||}\n\t\t\\hline\\hline\n\t\tChromosome&Genes&Composites&Components (uniques)&Families of composites\\\\\n\t\t\\hline\\hline\n")

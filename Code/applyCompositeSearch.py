@@ -12,16 +12,17 @@ C="80"
 clean_b = "./Code/CompositeSearch-master/bin/cleanblastp"
 compSearch = "./Code/CompositeSearch-master/bin/compositeSearch"
 data_option_g_path = "Data/"
-result_path = 'Result/CompositeSearch_results/'
+result_path = ''#'Result/CompositeSearch_results/'
 path_blast_alignments = 'Data/Blast_Alignments/'
 
-def prepare_option_g(g, repertory): # the option g for compositeSearch require a list of CompositeSearch ID of the genes. 
+def prepare_option_g(g, repertory, file, core, output): # the option g for compositeSearch require a list of CompositeSearch ID of the genes. 
 	if g == []:
 		return g
 	organism = repertory.split('/')[-1][:-24]
-	if not os.path.exists(repertory):
-		compositeSearch(file, [], core) # run compositeSearch a first time to get the dictionnary
-	dico = readCompositeSearch.extract_dictionary(repertory+ '/'+ organism + '.cleanNetwork.dico')
+	#if not os.path.exists(repertory):
+	#	result_repertory = compositeSearch(file, [], core) # run compositeSearch a first time to get the dictionnary
+	result_repertory = compositeSearch(file, [], core, output) # run compositeSearch a first time to get the dictionnary
+	dico = readCompositeSearch.extract_dictionary(result_repertory+ '/'+ organism + '.cleanNetwork.dico')
 	path = data_option_g_path + organism + ".txt"
 	with open(path, "w") as target:
 		for gene in g:
@@ -33,8 +34,9 @@ def prepare_option_g(g, repertory): # the option g for compositeSearch require a
 	return ["-g", path]
 	
 	
-def compositeSearch(file, g, core):
-
+def compositeSearch(file, g, core, output):
+	if output != '':
+		result_path = output
 	name = file.split('/')[-1].split('.')[0]
 	repertory = result_path + name + '_cleanNetwork_composites'
 	################# Running clean_blastp #####
@@ -44,7 +46,7 @@ def compositeSearch(file, g, core):
 	i = name + ".cleanNetwork"
 	n = name + ".cleanNetwork.genes"
 	cmd2 = [compSearch,  "-i", i , "-n", n, "-m", "composites", "-e", E, "-p", P, "-c", C, "-t", core]
-	option_g = prepare_option_g(g, repertory)
+	option_g = prepare_option_g(g, repertory, file, core, output)
 	cmd2 = cmd2 + option_g
 	step2 = subprocess.run(cmd2, capture_output=True)
 	######## Cleaning the repertory ############
@@ -78,11 +80,11 @@ def compositeSearch(file, g, core):
 	return repertory
 		
 
-def blast(file, g, core): # the input is a blast file, only CompositeSearch need to be applied
-	return compositeSearch(file, g, core)
+def blast(file, g, core, output): # the input is a blast file, only CompositeSearch need to be applied
+	return compositeSearch(file, g, core, output)
 	
 	
-def fasta_path(file, g, core, path): # the input is a fasta file, a blast alignment is needed. 
+def fasta_path(file, g, core, path, output): # the input is a fasta file, a blast alignment is needed. 
 	cmd = ['makeblastdb',  '-in' , file , '-dbtype','prot','-out','my_prot_blast_db']
 	blast1 = subprocess.run(cmd)
 	align = file.split('.')[0].split('/')[-1]
@@ -96,17 +98,19 @@ def fasta_path(file, g, core, path): # the input is a fasta file, a blast alignm
 		os.system('mv ' + align + ' ' + path)
 		if not path.endswith('/'):
 			path = path + '/'
-		return compositeSearch(path + align, g, core)
+		return compositeSearch(path + align, g, core, output)
 	else :
 		raise ValueError('There is a problem with blast, please unsure that you are using the right fasta format.')
 		
 		
-def fasta(file, g, core):
-	return fasta_path(file, g, core, path_blast_alignments)	
+def fasta(file, g, core, output):
+	if output != '':
+		path_blast_alignments = output
+	return fasta_path(file, g, core, path_blast_alignments, output)	
 
 
 
-def ch_blast(path, g, core): # apply CompositeSearch on all chromosomes
+def ch_blast(path, g, core, output): # apply CompositeSearch on all chromosomes
 	cmd =[ "ls", path]
 	ls = subprocess.check_output(cmd)
 	liste = ls.split()
@@ -115,23 +119,23 @@ def ch_blast(path, g, core): # apply CompositeSearch on all chromosomes
 		correct_name = str(name).strip('b')
 		correct_name = correct_name.strip('\'')
 		current_path = path + "/" + correct_name
-		res.append(compositeSearch(current_path, g, core))
+		res.append(compositeSearch(current_path, g, core, output))
 	return res , path
 		
 		
-def ch_fasta(path, g, core): # apply CompositeSearch on all chromosomes
+def ch_fasta(path, g, core, output): # apply CompositeSearch on all chromosomes
 	cmd =[ "ls", path]
 	ls = subprocess.check_output(cmd)
 	liste = ls.split()
 	res = []
 	organisme = str(liste[0]).strip('b').strip('\'').split('_')[0]
-	file = path_blast_alignments + organisme
+	file = output + organisme + '_blast_alignments'
 	cmd = 'mkdir ' + file
 	os.system(cmd)
 	for name in liste:
 		correct_name = str(name).strip('b')
 		correct_name = correct_name.strip('\'')
 		current_path = path + "/" + correct_name
-		res.append(fasta_path(current_path, g, core, file))
-	return res, path_blast_alignments
+		res.append(fasta_path(current_path, g, core, file, output))
+	return res, output
 	

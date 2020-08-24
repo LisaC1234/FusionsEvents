@@ -3,6 +3,8 @@
 import argparse
 import subprocess
 import time
+import os
+
 
 import readDiffuse
 import applyCompositeSearch
@@ -51,21 +53,25 @@ def parse_arguments():
 
 def main():
 	begin = time.time()
-	#compositeSearch = 0
 	########### Get the paths ##################
 	args = parse_arguments()
 	path_input = args.i
 	core = args.c
-########Using a Diffuse input	
 	reading_CompositeSearch = False ### memorise if the CompositeSearch files have already been read. 
 	reading_Diffuse = False
-	######## Extract the diffuse result ########
+	organism = path_input.split('/')[-1]
+	output = organism + '_Complete_analysis/'
+	if os.path.exists(output):
+			cmd = 'rm -r ' + output
+			os.system(cmd)
+	cmd = 'mkdir ' + output
+	os.system(cmd)
 	
 	
 
 	print('CompositeSearch will be applied on the entry')
-	file = args.algo(path_input, [], core) # only apply CompositeSearch
-	organism = path_input.split('/')[-1]
+	file = args.algo(path_input, [], core, output) 
+	
 	
 	if args.diffuse:
 		print('The results of CompositeSearch and Diffuse will be compaired. ')
@@ -78,28 +84,29 @@ def main():
 		if args.g_option :
 			print('CompositeSearch will be applied using the -g option filled with the list of composite found by diffuse')
 			g = list(set(diffuse["composite"]))
-			file = args.algo(path_input, g, core) #re_apply compositeSearch only if -g is used
+			file = args.algo(path_input, g, core, output) #re_apply compositeSearch only if -g is used
 		compositeSearch = readCompositeSearch.reader(file)
-		reading_ComopsiteSearch = True
+		reading_CompositeSearch = True
 	
 	###### Compare the results #################
-		analyse.comparison(diffuse, compositeSearch, organism)
+		analyse.comparison(diffuse, compositeSearch, organism, output)
 	
 
 
 	if args.ch:	
 	
 		print('A detailed analysis over the genome will run, using information from chromosome by chromosome computation')
-		compositeSearch = readCompositeSearch.reader(file)
-		reading_ComopsiteSearch = True
+		if not reading_CompositeSearch :
+			compositeSearch = readCompositeSearch.reader(file)
+			reading_CompositeSearch = True
 	###### Apply CompositeSearch ###############
 		arg_path = args.ch
-		list_repertories, path_blast = args.algo_ch(arg_path, [], core) #list_repertories is a list of the location of the result files
+		list_repertories, path_blast = args.algo_ch(arg_path, [], core, output) #list_repertories is a list of the location of the result files
 		compositeSearch = readCompositeSearch.enrich_blast(compositeSearch, path_blast)
 
 		list_ch = readCompositeSearch.multiple_reader(list_repertories) # list_ch is a list of pandas matrix for each chromosome
 
-		analyse.by_chromosome(compositeSearch, list_ch, organism)
+		analyse.by_chromosome(compositeSearch, list_ch, organism, output)
 		
 		if args.target:
 			target_ch = args.target
@@ -117,21 +124,25 @@ def main():
 			compositeSearch = readCompositeSearch.reader(file)
 			reading_CompositeSearch = True
 		pathways = gProfiler.run_gProfiler(compositeSearch, organism_gProfiler)
-		pathways.to_csv('Result/gProfiler/' + organism_gProfiler + '_' + organism+ '_gProfiles.csv')
-		
-		
-		
-	if reading_CompositeSearch :
-		compositeSearch.to_csv(organism +'_compositeSearch_result.csv')
-	if reading_Diffuse :
-		diffuse.to_csv(organism + '_diffuse_result.csv')
+		pathways.to_csv(output + organism_gProfiler + '_' + organism+ '_gProfiles.csv')
 		
 	if args.linker:
 		print('The linker regions will be analysed')
+		if not reading_CompositeSearch:
+			compositeSearch = readCompositeSearch.reader(file)
+			reading_CompositeSearch = True
 		fasta = args.linker
-		linkerRegion.compute_linkerRegion(compositeSearch,fasta)
+		linkerRegion.compute_linkerRegion(compositeSearch,fasta, organism, output)
 		#if args.diffuse: ## Is it ok ? 
-		#	linkerRegion.compute_linkerRegion(diffuse,fasta)
+		#	linkerRegion.compute_linkerRegion(diffuse,fasta)	
+		
+		
+	if reading_CompositeSearch :
+		compositeSearch.to_csv(output + organism +'_compositeSearch_result.csv')
+	if reading_Diffuse :
+		diffuse.to_csv(output + organism + '_diffuse_result.csv')
+		
+	
 	end = time.time()
 	print('\nThe execution took : ' , str(end-begin), ' seconds')
 if __name__ == "__main__":
