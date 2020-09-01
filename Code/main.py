@@ -9,7 +9,8 @@ import os
 import readDiffuse
 import applyCompositeSearch
 import readCompositeSearch
-import analyse
+import chromosomeComparison
+import diffuseVSCompositeSearch
 import printChromosome
 import gProfiler
 import linkerRegion
@@ -89,7 +90,7 @@ def main():
 		reading_CompositeSearch = True
 	
 	###### Compare the results #################
-		analyse.comparison(diffuse, compositeSearch, organism, output)
+		diffuseVSCompositeSearch.comparison(diffuse, compositeSearch, organism, output)
 	
 
 
@@ -106,7 +107,7 @@ def main():
 
 		list_ch = readCompositeSearch.multiple_reader(list_repertories) # list_ch is a list of pandas matrix for each chromosome
 
-		analyse.by_chromosome(compositeSearch, list_ch, organism, output)
+		chromosomeComparison.by_chromosome(compositeSearch, list_ch, organism, output)
 		
 		if args.target:
 			target_ch = args.target

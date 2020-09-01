@@ -7,7 +7,8 @@ aa = ['T', 'H', 'E', 'Y', 'Q', 'G', 'C', 'V', 'W', 'L', 'N', 'F', 'R', 'K', 'I',
 
 def extract_linker(composite, comp_linker, fasta_path):
 	res = []
-	cmd = ["grep", composite, "-A30", fasta_path]
+	seq = []
+	cmd = ["grep", composite, "-A30", fasta_path] # extract 30 ligne in the fasta file, in order to extract the sequence
 	p = Popen(cmd, stdout=PIPE, stderr=PIPE)
 	stdout, stderr = p.communicate()
 	out = str(stdout).strip('b').strip("'").strip('n').strip('\\').strip('>')
@@ -18,6 +19,7 @@ def extract_linker(composite, comp_linker, fasta_path):
 			break
 		sequence = sequence + string.strip('\\')
 	#sequence contains the sequence of the composite
+	seq.append(sequence)
 	for i in range(1,len(comp_linker)):
 
 		start_linker = comp_linker[i-1][1]
@@ -25,13 +27,14 @@ def extract_linker(composite, comp_linker, fasta_path):
 		size = abs(comp_linker[i-1][1] - comp_linker[i][0])
 		if size > 10 and size < 200 :
 			res.append(sequence[start_linker:end_linker]) 
-	return res
+	return res , seq
 	
 	
 	
 def linkerRegion(data, fasta_path):
 	no_overlap = data.loc[data["no_overlap_score"] == '1.00']
 	res = [] #list of all the linker_regions
+	sequences = []
 
 	for composite in set(no_overlap["composite"]):
 		sub_data = data.loc[data["composite"] == composite]
@@ -42,8 +45,10 @@ def linkerRegion(data, fasta_path):
 			begin = max(sub_sub["composite_start"])
 			end = min(sub_sub["composite_end"])
 			comp_linker.append((begin, end))
-		res = res + extract_linker(composite, comp_linker, fasta_path)
-	return res
+		link, seq =  extract_linker(composite, comp_linker, fasta_path)
+		res = res + link
+		sequences = sequences + seq
+	return res, seq
 		
 		
 def average_aa(list_linker, organism, output):
@@ -64,12 +69,41 @@ def average_aa(list_linker, organism, output):
 	res.to_csv(output+'profile_linker_regions_' + organism + '.csv')
 	return res	
 	
+	
+def av_aa(seq):
+	res = [0 for i in range(len(aa))]
+	n = len(seq)
+	for letter in seq:
+		if letter in aa:
+			res[aa.index(letter)] +=1
+		elif letter.upper() in aa:
+			res[aa.index(letter.upper())] +=1
+	for i in range(len(res)):
+		res[i] = float(res[i])/n
+	return res
+	
+def general_comparison(list_linker, list_seq, organism, output):
+	res = pandas.DataFrame(columns=aa)
+	master_linker = ''
+	master_seq = ''
+	for linker in list_linker:
+		master_linker = master_linker + linker
+	for sequences in list_seq:
+		master_seq = master_seq + sequences
+	res.loc["full sequences"] = av_aa(master_linker)
+	res.loc["linker regions"] = av_aa(master_seq)
+	res.to_csv(output+'profile_linker_regions_' + organism + '.csv')
+	return res	
+	
+	
+	
 def compute_linkerRegion(data, fasta_file, organism, output):
-	return average_aa(linkerRegion(data, fasta_file), organism, output)
+	list_link, list_seq = linkerRegion(data, fasta_file)
+	return general_comparison(list_link, list_seq, organism, output)
 
 def main():
 	data = pandas.read_csv("mouse_reviewedcompositeSearch_resutl.csv")
-	average_aa(linkerRegion(data, "Data/fasta_databases/mouse_reviewed.fasta"), 'mouse', '')
+	general_comparison(linkerRegion(data, "Data/fasta_databases/mouse_reviewed.fasta"), 'mouse', '')
 
 if __name__ == "__main__":
 	main()
