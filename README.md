@@ -1,7 +1,10 @@
 # FusionsEvents
-## Pre-requisite to use this code : 
-* R library gprofiler2
-* Python library : Networkx, dash, pandas, colour
+## Pre-requisite to use this code (Python libraries): 
+* Networkx
+* dash
+* pandas
+* colour
+* gprofiler official 1.0.0
 
 
 ## How to get help : 
@@ -22,6 +25,7 @@ $python3 Code/main.py -h
 --ch : Should be a repertory with all the blast alignments for each chromosome (or fasta file with the option --fasta_ch)
 --target : If information about the chromosome is given, the targetted chromosome will be displayed ('all' will display the whole network)
 --gProfiler : should be the organisme to use for the g:Profiler analysis. (help at https://biit.cs.ut.ee/gprofiler/page/organism-list)
+--linker : This option will run the analysis of the linker region for the composite found by Diffuse.
 ```
 ## To change the parameters for CompositeSearch : 
 The parameters are in the header of the "Code/applyCompositeSearch.py" file, it is therefore easy to change them. Change them carefully, because the output file will be replaced, and it is not possible to know afterward the parameters that were used in a particular computation. 
